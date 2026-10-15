@@ -6,76 +6,76 @@
 <meta name="theme-color" content="#0b1120">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
-<title>بت‌ریز | دستیار مرکزی نهایی</title>
+<title>بت‌ریز | دستیار مرکزی</title>
 <link rel="manifest" href="data:application/manifest+json;base64,eyJuYW1lIjoi2KjYr9ix24zYqiIsInNob3J0X25hbWUiOiLYqNiv2LHbjNiqIiwiZGlzcGxheSI6InN0YW5kYWxvbmUiLCJiYWNrZ3JvdW5kX2NvbG9yIjoiIzBiMTEyMCIsInRoZW1lX2NvbG9yIjoiIzBiMTEyMCIsInN0YXJ0X3VybCI6Ii4iLCJpY29ucyI6W119">
 <style>
-:root{color-scheme:dark;--bg:#0b1120;--panel:#141e30;--line:#29364b;--text:#edf3ff;--muted:#a7b5ca;--accent:#66e0c2;--warn:#ffcc80;--danger:#ff8a9a;--success:#7dcea0}
+:root{--bg:#0b1120;--panel:#141e30;--line:#29364b;--text:#edf3ff;--muted:#a7b5ca;--accent:#66e0c2;--warn:#ffcc80;--danger:#ff8a9a;--user:#1a3358;--bot:#152e28}
 *{box-sizing:border-box;margin:0;padding:0}
-body{background:var(--bg);color:var(--text);font-family:Tahoma,Arial,sans-serif;line-height:1.65;padding-bottom:70px;-webkit-font-smoothing:antialiased}
-header{padding:14px 16px;background:#101827;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:100}
-h1{font-size:20px;color:var(--accent);font-weight:700}
-header p{font-size:11.5px;color:var(--muted);margin-top:2px}
-main{max-width:960px;margin:0 auto;padding:12px}
-nav{display:flex;flex-wrap:wrap;gap:5px;margin:10px 0 14px;position:sticky;top:56px;background:var(--bg);padding:6px 0;z-index:90}
-button{font:inherit;cursor:pointer;border:1px solid var(--line);background:#1e2a3d;color:var(--text);padding:8px 11px;border-radius:9px;font-size:12px;transition:.15s}
-button:hover{border-color:var(--accent)}
-button.primary{background:var(--accent);color:#06221c;border-color:var(--accent);font-weight:700}
-button.danger{border-color:#a94d58;color:var(--danger)}
-button.success{border-color:#2e7d5a;color:var(--success)}
-.panel{background:var(--panel);border:1px solid var(--line);border-radius:13px;padding:14px;margin-bottom:12px}
-h2{font-size:15px;margin-bottom:10px;color:#e0eaff}
-h3{font-size:13.5px;margin:12px 0 6px;color:#c5d4e8}
+body{background:var(--bg);color:var(--text);font-family:Tahoma,Arial,sans-serif;line-height:1.6;height:100vh;display:flex;flex-direction:column;overflow:hidden}
+header{padding:12px 16px;background:#101827;border-bottom:1px solid var(--line);flex-shrink:0}
+h1{font-size:18px;color:var(--accent)}
+header p{font-size:11px;color:var(--muted)}
+nav{display:flex;flex-wrap:wrap;gap:4px;padding:8px 12px;background:#0d1525;border-bottom:1px solid var(--line);flex-shrink:0;overflow-x:auto}
+nav button{border:1px solid var(--line);background:#1e2a3d;color:var(--text);padding:7px 10px;border-radius:8px;font-size:11.5px;white-space:nowrap}
+nav button.active{background:var(--accent);color:#06221c;font-weight:bold}
+main{flex:1;overflow-y:auto;padding:12px;max-width:900px;margin:0 auto;width:100%}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px;margin-bottom:12px}
+h2{font-size:15px;margin-bottom:10px}
 .muted{color:var(--muted);font-size:12px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:7px}
-.stat{background:#0f1828;border:1px solid var(--line);border-radius:10px;padding:10px 8px;text-align:center}
-.stat strong{display:block;font-size:14px;color:var(--accent);margin-bottom:2px}
-label{display:block;margin:9px 0 4px;font-size:12.5px;color:#c8d6ea}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(100px,1fr));gap:6px}
+.stat{background:#0f1828;border:1px solid var(--line);border-radius:9px;padding:9px;text-align:center}
+.stat strong{display:block;font-size:13px;color:var(--accent)}
+label{display:block;margin:8px 0 4px;font-size:12.5px}
 input,textarea,select{width:100%;padding:9px 11px;border-radius:8px;background:#0b1423;border:1px solid var(--line);color:var(--text);font:inherit}
-textarea{min-height:80px;resize:vertical}
-.row{display:flex;gap:6px;flex-wrap:wrap;margin-top:9px}
-.row button{flex:1;min-width:90px}
-.status{display:inline-block;padding:2px 8px;border-radius:6px;background:#27374a;color:var(--warn);font-size:11px;margin-top:4px}
-.item{background:#0f1828;border:1px solid var(--line);border-radius:9px;padding:10px 11px;margin-top:7px;overflow-wrap:anywhere}
-.item p{margin:2px 0;font-size:13.5px}
+textarea{min-height:70px;resize:vertical}
+button{font:inherit;cursor:pointer;border:1px solid var(--line);background:#1e2a3d;color:var(--text);padding:8px 12px;border-radius:8px;font-size:12.5px}
+button.primary{background:var(--accent);color:#06221c;border-color:var(--accent);font-weight:bold}
+button.danger{border-color:#a94d58;color:var(--danger)}
+.row{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.row button{flex:1;min-width:80px}
+.item{background:#0f1828;border:1px solid var(--line);border-radius:8px;padding:10px;margin-top:7px}
+.status{display:inline-block;padding:2px 7px;border-radius:5px;background:#27374a;color:var(--warn);font-size:11px}
+.badge{display:inline-block;background:#1a3a32;color:var(--accent);padding:1px 6px;border-radius:4px;font-size:10.5px}
+.output{background:#0c1524;border:1px solid var(--line);border-radius:8px;padding:12px;margin-top:10px;font-size:13px;white-space:pre-wrap;max-height:320px;overflow-y:auto}
+.notice{background:#241f19;border-right:3px solid var(--warn);border-radius:7px;padding:8px 11px;font-size:12px;margin-bottom:12px;color:#e8d9b5}
 section[hidden]{display:none!important}
-.notice{background:#241f19;border-right:3px solid var(--warn);border-radius:8px;padding:9px 12px;font-size:12px;margin-bottom:12px;color:#e8d9b5}
-.chat-box{max-height:340px;overflow-y:auto;background:#0f1828;border:1px solid var(--line);border-radius:10px;padding:8px;margin-bottom:9px}
-.msg{margin:7px 0;padding:8px 11px;border-radius:10px;max-width:92%;font-size:13.5px;line-height:1.55}
-.msg.user{background:#1a3358;margin-right:auto}
-.msg.assistant{background:#152e28;margin-left:auto;border:1px solid #2a4a40}
-.msg small{display:block;color:var(--muted);font-size:10.5px;margin-top:3px}
-.badge{display:inline-block;background:#1a3a32;color:var(--accent);padding:1px 7px;border-radius:5px;font-size:10.5px;margin-left:5px}
-.output{background:#0c1524;border:1px solid var(--line);border-radius:8px;padding:12px;margin-top:10px;font-size:13px;white-space:pre-wrap;max-height:400px;overflow-y:auto}
-footer{position:fixed;bottom:0;width:100%;background:#101827;border-top:1px solid var(--line);text-align:center;padding:10px;font-size:11px;color:var(--muted);z-index:80}
+
+/* چت واقعی */
+#chatSection{display:flex;flex-direction:column;height:100%}
+.chat-messages{flex:1;overflow-y:auto;padding:10px 4px;display:flex;flex-direction:column;gap:8px}
+.msg{max-width:85%;padding:9px 12px;border-radius:12px;font-size:13.5px;line-height:1.5}
+.msg.user{align-self:flex-start;background:var(--user)}
+.msg.bot{align-self:flex-end;background:var(--bot);border:1px solid #2a4a40}
+.msg small{display:block;font-size:10px;color:var(--muted);margin-top:3px}
+.chat-input-bar{display:flex;gap:8px;padding:10px;background:#101827;border-top:1px solid var(--line);flex-shrink:0}
+.chat-input-bar textarea{flex:1;min-height:44px;max-height:100px;resize:none;padding:10px;border-radius:10px}
+.chat-input-bar button{height:44px;min-width:64px}
 </style>
 </head>
 <body>
 <header>
   <h1>بت‌ریز</h1>
-  <p>دستیار مرکزی · نسخه کامل نهایی · آماده آزمایش روی گوشی</p>
+  <p>دستیار مرکزی · نسخه کامل نهایی · مکالمه واقعی + تنظیمات</p>
 </header>
 
-<main>
-  <div class="notice">
-    این کامل‌ترین نسخه تک‌فایلی است. تمام قابلیت‌ها (تحقیق، کدنویسی، محتوا، ارتقا، مخاطب) شبیه‌سازی‌شده و با تأیید دستی کار می‌کنند. اتصال واقعی به اینترنت و شبکه‌های اجتماعی در مراحل بعدی و فقط با اجازه تو اضافه می‌شود.
-  </div>
+<nav id="mainNav">
+  <button onclick="showPage('home')" class="active">خانه</button>
+  <button onclick="showPage('chat')">گفت‌وگو</button>
+  <button onclick="showPage('research')">تحقیق</button>
+  <button onclick="showPage('coding')">کدنویسی</button>
+  <button onclick="showPage('content')">محتوا</button>
+  <button onclick="showPage('audience')">مخاطب</button>
+  <button onclick="showPage('settings')">تنظیمات</button>
+  <button onclick="showPage('commands')">فرمان‌ها</button>
+  <button onclick="showPage('tools')">ارتقا</button>
+  <button onclick="showPage('memory')">حافظه</button>
+  <button onclick="showPage('backup')">پشتیبان</button>
+</nav>
 
-  <nav>
-    <button onclick="showPage('home')">خانه</button>
-    <button onclick="showPage('chat')">گفت‌وگو</button>
-    <button onclick="showPage('research')">تحقیق</button>
-    <button onclick="showPage('coding')">کدنویسی</button>
-    <button onclick="showPage('content')">محتوا</button>
-    <button onclick="showPage('audience')">مخاطب</button>
-    <button onclick="showPage('identity')">هویت</button>
-    <button onclick="showPage('commands')">فرمان‌ها</button>
-    <button onclick="showPage('tools')">ارتقا</button>
-    <button onclick="showPage('memory')">حافظه</button>
-    <button onclick="showPage('backup')">پشتیبان</button>
-  </nav>
-
+<main id="mainContent">
   <!-- خانه -->
   <section id="home">
+    <div class="notice">نسخه کامل نهایی. همه قابلیت‌ها شبیه‌سازی‌شده و تحت کنترل تو هستند. اتصال واقعی در آینده با تأیید تو فعال می‌شود.</div>
     <div class="panel">
       <h2>مرکز فرماندهی</h2>
       <div class="grid">
@@ -87,34 +87,28 @@ footer{position:fixed;bottom:0;width:100%;background:#101827;border-top:1px soli
     </div>
     <div class="panel">
       <h2>وضعیت</h2>
-      <p class="muted">بت‌ریز آماده است. می‌توانی تحقیق کنی، کد بسازی، محتوا تولید کنی و ارتقا پیشنهاد بدهی. همه چیز تحت کنترل و تأیید توست.</p>
+      <p class="muted">بت‌ریز آماده همکاری است. از گفت‌وگو برای مکالمه روان استفاده کن. از تنظیمات برای مدیریت قابلیت‌ها، هدف یادگیری و فضای ابری استفاده کن.</p>
     </div>
   </section>
 
-  <!-- گفت‌وگو -->
+  <!-- گفت‌وگو واقعی -->
   <section id="chat" hidden>
-    <div class="panel">
-      <h2>گفت‌وگو با بت‌ریز</h2>
-      <div class="chat-box" id="chatBox"></div>
-      <label>پیام خود را بنویس</label>
-      <textarea id="chatInput" placeholder="هدف، سؤال یا دستور..."></textarea>
-      <div class="row">
+    <div id="chatSection">
+      <div class="chat-messages" id="chatBox"></div>
+      <div class="chat-input-bar">
+        <textarea id="chatInput" placeholder="پیام خود را بنویس..." rows="1"></textarea>
         <button class="primary" onclick="sendMessage()">ارسال</button>
-        <button onclick="clearChat()">پاک کردن</button>
       </div>
     </div>
   </section>
 
-  <!-- تحقیق و یادگیری -->
+  <!-- تحقیق -->
   <section id="research" hidden>
     <div class="panel">
-      <h2>استودیوی تحقیق و یادگیری</h2>
-      <p class="muted">موضوع را بنویس. بت‌ریز تحقیق شبیه‌سازی‌شده انجام می‌دهد و دانش را در حافظه ذخیره می‌کند.</p>
-      <label>موضوع تحقیق</label>
-      <textarea id="researchTopic" placeholder="مثلاً: چگونه یک فروشگاه اینترنتی با Flutter بسازیم"></textarea>
-      <div class="row">
-        <button class="primary" onclick="doResearch()">شروع تحقیق و یادگیری</button>
-      </div>
+      <h2>تحقیق و یادگیری</h2>
+      <p class="muted">موضوع را بنویس تا تحقیق شبیه‌سازی‌شده انجام شود و دانش ذخیره شود.</p>
+      <textarea id="researchTopic" placeholder="موضوع تحقیق..."></textarea>
+      <div class="row"><button class="primary" onclick="doResearch()">شروع تحقیق</button></div>
       <div id="researchOutput" class="output" style="display:none"></div>
     </div>
   </section>
@@ -122,13 +116,10 @@ footer{position:fixed;bottom:0;width:100%;background:#101827;border-top:1px soli
   <!-- کدنویسی -->
   <section id="coding" hidden>
     <div class="panel">
-      <h2>استودیوی کدنویسی و ساخت پروژه</h2>
-      <p class="muted">توضیح بده چه سایتی یا برنامه‌ای می‌خواهی. کد و ساختار کامل تولید می‌شود.</p>
-      <label>توضیح پروژه یا درخواست کد</label>
-      <textarea id="codeRequest" placeholder="مثلاً: یک صفحه فرود ساده برای معرفی اپلیکیشن با HTML و CSS بساز"></textarea>
-      <div class="row">
-        <button class="primary" onclick="generateCode()">تولید کد و ساختار</button>
-      </div>
+      <h2>کدنویسی و ساخت پروژه</h2>
+      <p class="muted">توضیح بده چه چیزی می‌خواهی ساخته شود.</p>
+      <textarea id="codeRequest" placeholder="توضیح پروژه یا درخواست کد..."></textarea>
+      <div class="row"><button class="primary" onclick="generateCode()">تولید کد</button></div>
       <div id="codeOutput" class="output" style="display:none"></div>
     </div>
   </section>
@@ -136,25 +127,14 @@ footer{position:fixed;bottom:0;width:100%;background:#101827;border-top:1px soli
   <!-- محتوا -->
   <section id="content" hidden>
     <div class="panel">
-      <h2>استودیوی محتوا (اینستاگرام + یوتیوب)</h2>
-      <label>موضوع محتوا</label>
-      <input id="contentTopic" placeholder="موضوع پست یا ویدیو">
+      <h2>تولید محتوا (اینستاگرام / یوتیوب)</h2>
+      <label>موضوع</label>
+      <input id="contentTopic" placeholder="موضوع محتوا">
       <label>پلتفرم</label>
-      <select id="contentPlatform">
-        <option>اینستاگرام</option>
-        <option>یوتیوب</option>
-        <option>هر دو</option>
-      </select>
+      <select id="contentPlatform"><option>اینستاگرام</option><option>یوتیوب</option><option>هر دو</option></select>
       <label>هدف</label>
-      <select id="contentGoal">
-        <option>جذب مخاطب جدید</option>
-        <option>افزایش تعامل</option>
-        <option>آموزشی</option>
-        <option>فروش</option>
-      </select>
-      <div class="row">
-        <button class="primary" onclick="generateContent()">تولید محتوا</button>
-      </div>
+      <select id="contentGoal"><option>جذب مخاطب</option><option>افزایش تعامل</option><option>آموزشی</option><option>فروش</option></select>
+      <div class="row"><button class="primary" onclick="generateContent()">تولید محتوا</button></div>
       <div id="contentOutput" class="output" style="display:none"></div>
     </div>
   </section>
@@ -162,42 +142,53 @@ footer{position:fixed;bottom:0;width:100%;background:#101827;border-top:1px soli
   <!-- مخاطب -->
   <section id="audience" hidden>
     <div class="panel">
-      <h2>مدیریت مخاطب و پیشنهاد محتوا</h2>
-      <p class="muted">توضیح بده مخاطب فعلی‌ات کیست و چه هدفی داری تا پیشنهاد هوشمند بدهم.</p>
-      <label>توضیح مخاطب و هدف</label>
-      <textarea id="audienceInfo" placeholder="مثلاً: مخاطبان من علاقه‌مند به برنامه‌نویسی و هوش مصنوعی هستند. می‌خواهم تعداد فالوور را افزایش دهم"></textarea>
-      <div class="row">
-        <button class="primary" onclick="analyzeAudience()">تحلیل و پیشنهاد</button>
-      </div>
+      <h2>تحلیل مخاطب و پیشنهاد</h2>
+      <textarea id="audienceInfo" placeholder="مخاطبان فعلی و هدف خود را توضیح بده..."></textarea>
+      <div class="row"><button class="primary" onclick="analyzeAudience()">تحلیل و پیشنهاد</button></div>
       <div id="audienceOutput" class="output" style="display:none"></div>
     </div>
   </section>
 
-  <!-- هویت -->
-  <section id="identity" hidden>
+  <!-- تنظیمات -->
+  <section id="settings" hidden>
     <div class="panel">
-      <h2>هویت و مأموریت</h2>
-      <label>نام</label>
-      <input id="assistantName" value="بت‌ریز">
-      <label>شهر مبدأ</label>
-      <input id="origin" value="تبریز">
-      <label>زبان</label>
-      <select id="language"><option>فارسی</option><option>چندزبانه</option></select>
-      <label>مأموریت</label>
-      <textarea id="mission">همکاری نزدیک با صاحب برای تبدیل ایده‌ها به واقعیت، ساخت دنیای بهتر، یادگیری مداوم و حل مسائل واقعی. هر اقدام خارجی فقط با تأیید صریح صاحب.</textarea>
-      <label>سبک همکاری</label>
-      <textarea id="style">صادق، شفاف، صبور و دقیق. پیشنهاد می‌دهد اما تصمیم نهایی همیشه با صاحب است.</textarea>
-      <button class="primary" onclick="saveIdentity()">ذخیره هویت</button>
-      <p id="identityStatus" class="muted"></p>
+      <h2>تنظیمات و دسترسی‌ها</h2>
+      <p class="muted">از اینجا قابلیت‌ها را مدیریت کن، هدف یادگیری تعریف کن و فضای ابری را کنترل کن.</p>
+
+      <h3 style="margin-top:14px">قابلیت‌های فعلی و آینده</h3>
+      <div class="item"><span class="badge">فعال</span> گفت‌وگو + حافظه</div>
+      <div class="item"><span class="badge">فعال</span> تحقیق شبیه‌سازی</div>
+      <div class="item"><span class="badge">فعال</span> کدنویسی شبیه‌سازی</div>
+      <div class="item"><span class="badge">فعال</span> تولید محتوا</div>
+      <div class="item"><span class="badge">فعال</span> تحلیل مخاطب</div>
+      <div class="item"><span class="badge">غیرفعال</span> مدل محلی واقعی</div>
+      <div class="item"><span class="badge">غیرفعال</span> اینترنت زنده</div>
+      <div class="item"><span class="badge">غیرفعال</span> اتصال اینستاگرام/یوتیوب واقعی</div>
+      <div class="item"><span class="badge">غیرفعال</span> ساخت ویدیو</div>
+      <div class="item"><span class="badge">غیرفعال</span> فضای ابری برای گسترش</div>
+
+      <h3 style="margin-top:16px">هدف یادگیری و زمان‌بندی</h3>
+      <label>هدف یادگیری</label>
+      <textarea id="learningGoal" placeholder="مثلاً: تا ۳۰ روز آینده به سطح ساخت سایت کامل برس"></textarea>
+      <label>مهلت (روز)</label>
+      <input type="number" id="learningDays" placeholder="تعداد روز" min="1">
+      <div class="row"><button class="primary" onclick="saveLearning()">ذخیره هدف یادگیری</button></div>
+      <p id="learningStatus" class="muted"></p>
+
+      <h3 style="margin-top:16px">فضای ابری (شبیه‌سازی)</h3>
+      <p class="muted">برای گسترش دانش و مدل در آینده. فعلاً فقط ثبت درخواست است.</p>
+      <div class="row">
+        <button onclick="proposeCloud()">درخواست فعال‌سازی فضای ابری</button>
+      </div>
     </div>
   </section>
 
   <!-- فرمان‌ها -->
   <section id="commands" hidden>
     <div class="panel">
-      <h2>مدیریت فرمان‌ها</h2>
-      <textarea id="commandText" placeholder="شرح فرمان را واضح بنویس"></textarea>
-      <button class="primary" onclick="addCommand()">ثبت فرمان</button>
+      <h2>فرمان‌ها</h2>
+      <textarea id="commandText" placeholder="شرح فرمان..."></textarea>
+      <div class="row"><button class="primary" onclick="addCommand()">ثبت فرمان</button></div>
       <div id="commandList"></div>
     </div>
   </section>
@@ -205,24 +196,27 @@ footer{position:fixed;bottom:0;width:100%;background:#101827;border-top:1px soli
   <!-- ارتقا -->
   <section id="tools" hidden>
     <div class="panel">
-      <h2>سیستم ارتقا و ابزارها</h2>
-      <p class="muted">بت‌ریز می‌تواند خودش پیشنهاد ارتقا بدهد. هر ارتقا فقط با تأیید تو فعال می‌شود.</p>
-      <div class="item"><p><span class="badge">فعال</span> حافظه + گفت‌وگو + تحقیق شبیه‌سازی + کدنویسی شبیه‌سازی + محتوا</p></div>
+      <h2>سیستم ارتقا</h2>
+      <p class="muted">بت‌ریز می‌تواند پیشنهاد بدهد. فقط با تأیید تو فعال می‌شود.</p>
       <div class="item">
-        <p><span class="badge">غیرفعال</span> مدل هوش مصنوعی محلی واقعی</p>
-        <button onclick="proposeUpgrade('local-llm')" style="margin-top:6px">پیشنهاد فعال‌سازی</button>
+        <p><span class="badge">غیرفعال</span> مدل محلی واقعی</p>
+        <button onclick="proposeUpgrade('local-llm')" style="margin-top:6px">پیشنهاد</button>
       </div>
       <div class="item">
-        <p><span class="badge">غیرفعال</span> دسترسی واقعی به اینترنت</p>
-        <button onclick="proposeUpgrade('internet')" style="margin-top:6px">پیشنهاد فعال‌سازی</button>
+        <p><span class="badge">غیرفعال</span> اینترنت زنده</p>
+        <button onclick="proposeUpgrade('internet')" style="margin-top:6px">پیشنهاد</button>
       </div>
       <div class="item">
-        <p><span class="badge">غیرفعال</span> اتصال واقعی اینستاگرام و یوتیوب</p>
-        <button onclick="proposeUpgrade('social')" style="margin-top:6px">پیشنهاد فعال‌سازی</button>
+        <p><span class="badge">غیرفعال</span> شبکه‌های اجتماعی واقعی</p>
+        <button onclick="proposeUpgrade('social')" style="margin-top:6px">پیشنهاد</button>
       </div>
       <div class="item">
-        <p><span class="badge">غیرفعال</span> ساخت و انتشار ویدیو</p>
-        <button onclick="proposeUpgrade('video')" style="margin-top:6px">پیشنهاد فعال‌سازی</button>
+        <p><span class="badge">غیرفعال</span> ساخت ویدیو</p>
+        <button onclick="proposeUpgrade('video')" style="margin-top:6px">پیشنهاد</button>
+      </div>
+      <div class="item">
+        <p><span class="badge">غیرفعال</span> فضای ابری</p>
+        <button onclick="proposeUpgrade('cloud')" style="margin-top:6px">پیشنهاد</button>
       </div>
       <h3>پیشنهادهای در انتظار</h3>
       <div id="upgradeList"></div>
@@ -252,383 +246,369 @@ footer{position:fixed;bottom:0;width:100%;background:#101827;border-top:1px soli
   </section>
 </main>
 
-<footer>بت‌ریز · نسخه کامل نهایی · کنترل کامل با صاحب · آماده آزمایش روی گوشی</footer>
-
 <script>
 const $ = id => document.getElementById(id);
-const read = (k, f) => { try { const v = localStorage.getItem(k); return v === null ? f : JSON.parse(v); } catch { return f; } };
-const write = (k, v) => localStorage.setItem(k, JSON.stringify(v));
+const read = (k,f) => { try{const v=localStorage.getItem(k);return v===null?f:JSON.parse(v)}catch{return f} };
+const write = (k,v) => localStorage.setItem(k,JSON.stringify(v));
 
-let commands = read('betriz_commands', []);
-let notes = read('betriz_notes', []);
-let chatHistory = read('betriz_chat', []);
-let upgrades = read('betriz_upgrades', []);
-let knowledge = read('betriz_knowledge', []);
-let identity = read('betriz_identity', {
-  name: 'بت‌ریز', origin: 'تبریز', language: 'فارسی',
-  mission: 'همکاری نزدیک با صاحب برای تبدیل ایده‌ها به واقعیت، ساخت دنیای بهتر، یادگیری مداوم و حل مسائل واقعی. هر اقدام خارجی فقط با تأیید صریح صاحب.',
-  style: 'صادق، شفاف، صبور و دقیق. پیشنهاد می‌دهد اما تصمیم نهایی همیشه با صاحب است.'
+let commands = read('betriz_commands',[]);
+let notes = read('betriz_notes',[]);
+let chatHistory = read('betriz_chat',[]);
+let upgrades = read('betriz_upgrades',[]);
+let knowledge = read('betriz_knowledge',[]);
+let learning = read('betriz_learning',{goal:'',days:0});
+let identity = read('betriz_identity',{
+  name:'بت‌ریز',origin:'تبریز',language:'فارسی',
+  mission:'همکاری نزدیک با صاحب برای تبدیل ایده‌ها به واقعیت و ساخت دنیای بهتر. هر اقدام خارجی فقط با تأیید صاحب.',
+  style:'صادق، شفاف، صبور و دقیق.'
 });
 
-function showPage(id) {
-  document.querySelectorAll('main section').forEach(s => s.hidden = s.id !== id);
-  if (id === 'commands') renderCommands();
-  if (id === 'memory') renderNotes();
-  if (id === 'chat') renderChat();
-  if (id === 'tools') renderUpgrades();
-  if (id === 'identity') loadIdentity();
+function showPage(id){
+  document.querySelectorAll('main section').forEach(s=>s.hidden=s.id!==id);
+  document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));
+  const btn = [...document.querySelectorAll('nav button')].find(b=>b.textContent.includes(
+    id==='home'?'خانه':id==='chat'?'گفت‌وگو':id==='research'?'تحقیق':id==='coding'?'کدنویسی':
+    id==='content'?'محتوا':id==='audience'?'مخاطب':id==='settings'?'تنظیمات':id==='commands'?'فرمان‌ها':
+    id==='tools'?'ارتقا':id==='memory'?'حافظه':'پشتیبان'
+  ));
+  if(btn) btn.classList.add('active');
+
+  if(id==='chat'){renderChat();setTimeout(()=>$('chatInput').focus(),150)}
+  if(id==='commands') renderCommands();
+  if(id==='memory') renderNotes();
+  if(id==='tools') renderUpgrades();
+  if(id==='settings'){
+    $('learningGoal').value = learning.goal||'';
+    $('learningDays').value = learning.days||'';
+  }
   updateStats();
 }
-function updateStats() { $('commandCount').textContent = commands.length.toLocaleString('fa-IR'); }
 
-function loadIdentity() {
-  $('assistantName').value = identity.name || 'بت‌ریز';
-  $('origin').value = identity.origin || 'تبریز';
-  $('language').value = identity.language || 'فارسی';
-  $('mission').value = identity.mission || '';
-  $('style').value = identity.style || '';
-}
-function saveIdentity() {
-  identity = {
-    name: $('assistantName').value.trim() || 'بت‌ریز',
-    origin: $('origin').value.trim() || 'تبریز',
-    language: $('language').value,
-    mission: $('mission').value.trim(),
-    style: $('style').value.trim()
-  };
-  write('betriz_identity', identity);
-  $('identityStatus').textContent = 'هویت ذخیره شد.';
-  setTimeout(() => $('identityStatus').textContent = '', 2500);
+function updateStats(){$('commandCount').textContent=commands.length.toLocaleString('fa-IR')}
+
+function generateReply(text){
+  if(/سلام|درود|صبح|عصر/.test(text)) return 'سلام. من بت‌ریز هستم. آماده‌ام. بگو چه کاری انجام دهیم؟';
+  if(/هدف|مأموریت|چی هستی/.test(text)) return `مأموریت من:\n${identity.mission}\n\nسبک همکاری: ${identity.style}`;
+  if(/تحقیق|یادبگیر|یاد بگیر/.test(text)) return 'به بخش تحقیق برو و موضوع را بنویس.';
+  if(/کد|سایت|برنامه|بساز/.test(text)) return 'به بخش کدنویسی برو و توضیح بده چه چیزی می‌خواهی.';
+  if(/محتوا|پست|اینستا|یوتیوب/.test(text)) return 'به بخش محتوا برو و موضوع + پلتفرم را مشخص کن.';
+  if(/مخاطب|فالوور/.test(text)) return 'به بخش مخاطب برو و وضعیت را توضیح بده.';
+  if(/تنظیمات|هدف یادگیری|ابری/.test(text)) return 'به بخش تنظیمات برو. آنجا می‌توانی هدف یادگیری و فضای ابری را مدیریت کنی.';
+  if(/ارتقا|مدل|وصل/.test(text)) return 'به بخش ارتقا برو. می‌توانم پیشنهاد ثبت کنم و منتظر تأیید تو بمانم.';
+  return 'پیامت دریافت شد و در حافظه ثبت گردید.\nبگو مرحله بعد چه باشد یا از بخش‌های دیگر استفاده کن.';
 }
 
-function generateReply(text) {
-  const name = identity.name || 'بت‌ریز';
-  if (/سلام|درود|صبح|عصر/.test(text)) return `سلام. من ${name} هستم. آماده‌ام. بگو روی چه چیزی کار کنیم؟`;
-  if (/هدف|مأموریت|چی هستی/.test(text)) return `مأموریت من:\n${identity.mission}\n\nسبک: ${identity.style}`;
-  if (/تحقیق|یاد بگیر|یادبگیر/.test(text)) return 'به بخش «تحقیق» برو و موضوع را بنویس تا تحقیق و یادگیری را شروع کنم.';
-  if (/کد|سایت|برنامه|بساز/.test(text)) return 'به بخش «کدنویسی» برو و توضیح پروژه را بده تا کد و ساختار کامل تولید کنم.';
-  if (/محتوا|پست|اینستا|یوتیوب/.test(text)) return 'به بخش «محتوا» برو و موضوع + پلتفرم + هدف را مشخص کن.';
-  if (/مخاطب|فالوور|جذب/.test(text)) return 'به بخش «مخاطب» برو و وضعیت فعلی را توضیح بده تا پیشنهاد هوشمند بدهم.';
-  if (/ارتقا|مدل|وصل/.test(text)) return 'به بخش «ارتقا» برو. می‌توانم پیشنهاد ارتقا ثبت کنم و منتظر تأیید تو بمانم.';
-  return `پیامت ثبت شد.\n\nالان در حالت کامل شبیه‌سازی هستم. می‌توانی از بخش‌های تحقیق، کدنویسی، محتوا و مخاطب استفاده کنی.\nبگو مرحله بعد چه باشد.`;
-}
-
-function sendMessage() {
-  const text = $('chatInput').value.trim();
-  if (!text) return alert('متن را وارد کن.');
+function sendMessage(){
+  const input = $('chatInput');
+  const text = input.value.trim();
+  if(!text) return;
   const time = new Date().toLocaleString('fa-IR');
-  chatHistory.push({ role: 'user', text, time });
-  chatHistory.push({ role: 'assistant', text: generateReply(text), time });
-  if (chatHistory.length > 80) chatHistory = chatHistory.slice(-60);
-  write('betriz_chat', chatHistory);
-  $('chatInput').value = '';
+  chatHistory.push({role:'user',text,time});
+  chatHistory.push({role:'bot',text:generateReply(text),time});
+  if(chatHistory.length>100) chatHistory = chatHistory.slice(-80);
+  write('betriz_chat',chatHistory);
+  input.value = '';
+  input.style.height = '44px';
   renderChat();
+  setTimeout(()=>input.focus(),30);
 }
-function renderChat() {
+
+function renderChat(){
   const box = $('chatBox');
   box.innerHTML = '';
-  chatHistory.forEach(m => {
+  chatHistory.forEach(m=>{
     const div = document.createElement('div');
-    div.className = 'msg ' + m.role;
+    div.className = 'msg ' + (m.role==='user'?'user':'bot');
     div.innerHTML = `<div>\( {m.text.replace(/\n/g,'<br>')}</div><small> \){m.time}</small>`;
     box.appendChild(div);
   });
   box.scrollTop = box.scrollHeight;
 }
-function clearChat() {
-  if (!confirm('کل گفت‌وگو پاک شود؟')) return;
-  chatHistory = [];
-  write('betriz_chat', chatHistory);
-  renderChat();
+
+document.addEventListener('DOMContentLoaded',()=>{
+  const input = $('chatInput');
+  if(input){
+    input.addEventListener('keydown',e=>{
+      if(e.key==='Enter' && !e.shiftKey){e.preventDefault();sendMessage()}
+    });
+    input.addEventListener('input',function(){
+      this.style.height='auto';
+      this.style.height=Math.min(this.scrollHeight,100)+'px';
+    });
+  }
+});
+
+function doResearch(){
+  const topic=$('researchTopic').value.trim();
+  if(!topic) return alert('موضوع را وارد کن');
+  const out=$('researchOutput');
+  out.style.display='block';
+  out.textContent='در حال تحقیق...\n\n';
+  setTimeout(()=>{
+    out.textContent=`نتیجه تحقیق: «${topic}»
+
+خلاصه:
+- مفاهیم کلیدی استخراج شد
+- مراحل عملی پیشنهاد گردید
+- دانش در حافظه ذخیره شد
+
+(شبیه‌سازی‌شده – نسخه واقعی با اینترنت زنده دقیق‌تر خواهد بود)`;
+    knowledge.unshift({topic,date:new Date().toLocaleString('fa-IR')});
+    write('betriz_knowledge',knowledge);
+    notes.unshift({text:`دانش: ${topic}`,date:new Date().toLocaleString('fa-IR')});
+    write('betriz_notes',notes);
+  },1100);
 }
 
-function doResearch() {
-  const topic = $('researchTopic').value.trim();
-  if (!topic) return alert('موضوع را وارد کن.');
-  const output = $('researchOutput');
-  output.style.display = 'block';
-  output.textContent = 'در حال تحقیق شبیه‌سازی‌شده...\n\n';
-  setTimeout(() => {
-    const result = `نتیجه تحقیق در مورد: «${topic}»
+function generateCode(){
+  const req=$('codeRequest').value.trim();
+  if(!req) return alert('توضیح را وارد کن');
+  const out=$('codeOutput');
+  out.style.display='block';
+  out.textContent='در حال تولید کد...\n\n';
+  setTimeout(()=>{
+    out.textContent=`درخواست: ${req}
 
-خلاصه یادگیری:
-- مفاهیم اصلی موضوع استخراج شد.
-- مراحل عملی پیشنهادی ثبت گردید.
-- نکات مهم و چالش‌های رایج شناسایی شد.
-
-دانش جدید در حافظه محلی ذخیره شد.
-(این تحقیق شبیه‌سازی‌شده است. در نسخه واقعی با دسترسی اینترنت، منابع به‌روز جمع‌آوری می‌شود.)`;
-    output.textContent = result;
-    knowledge.unshift({ topic, result, date: new Date().toLocaleString('fa-IR') });
-    write('betriz_knowledge', knowledge);
-    notes.unshift({ text: `دانش جدید: ${topic}`, date: new Date().toLocaleString('fa-IR') });
-    write('betriz_notes', notes);
-  }, 1200);
-}
-
-function generateCode() {
-  const req = $('codeRequest').value.trim();
-  if (!req) return alert('توضیح پروژه را وارد کن.');
-  const output = $('codeOutput');
-  output.style.display = 'block';
-  output.textContent = 'در حال تولید کد و ساختار...\n\n';
-  setTimeout(() => {
-    const code = `درخواست: ${req}
-
-ساختار پیشنهادی پروژه:
+ساختار پیشنهادی:
 1. فایل‌های اصلی
-2. کامپوننت‌ها / صفحات
-3. استایل و منطق
+2. رابط کاربری
+3. منطق برنامه
 
-نمونه کد اولیه (HTML ساده):
+نمونه کد شروع:
 
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>پروژه جدید</title>
-  <style>
-    body { font-family: Tahoma; background: #0f172a; color: #e2e8f0; padding: 20px; }
-    .container { max-width: 800px; margin: auto; }
-    h1 { color: #38bdf8; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>پروژه</title>
+<style>
+body{font-family:Tahoma;background:#0f172a;color:#e2e8f0;padding:20px}
+.container{max-width:800px;margin:auto}
+h1{color:#38bdf8}
+</style>
 </head>
 <body>
-  <div class="container">
-    <h1>عنوان پروژه</h1>
-    <p>محتوای اصلی اینجا قرار می‌گیرد.</p>
-  </div>
+<div class="container">
+  <h1>عنوان پروژه</h1>
+  <p>محتوای اصلی</p>
+</div>
 </body>
 </html>
 
-توضیحات:
-- این یک نقطه شروع تمیز است.
-- می‌توانی جزئیات بیشتری بدهی تا کد کامل‌تر و دقیق‌تر تولید شود.
-- در نسخه واقعی، کد پیچیده‌تر و چندفایلی تولید خواهد شد.`;
-    output.textContent = code;
-  }, 1000);
+جزئیات بیشتر بده تا کد کامل‌تر تولید شود.`;
+  },900);
 }
 
-function generateContent() {
-  const topic = $('contentTopic').value.trim();
-  const platform = $('contentPlatform').value;
-  const goal = $('contentGoal').value;
-  if (!topic) return alert('موضوع را وارد کن.');
-  const output = $('contentOutput');
-  output.style.display = 'block';
-  output.textContent = 'در حال تولید محتوا...\n\n';
-  setTimeout(() => {
-    const result = `محتوای تولیدشده برای ${platform}
+function generateContent(){
+  const topic=$('contentTopic').value.trim();
+  const platform=$('contentPlatform').value;
+  const goal=$('contentGoal').value;
+  if(!topic) return alert('موضوع را وارد کن');
+  const out=$('contentOutput');
+  out.style.display='block';
+  out.textContent='در حال تولید...\n\n';
+  setTimeout(()=>{
+    out.textContent=`محتوا برای ${platform}
 موضوع: ${topic}
 هدف: ${goal}
 
-کپشن پیشنهادی اینستاگرام:
-«${topic} را جدی بگیرید!
-در این پست نکات کلیدی را با هم مرور می‌کنیم.
-اگر این موضوع برایتان جذاب است، ذخیره کنید و برای دوستان بفرستید.
-نظر شما چیست؟ در کامنت بنویسید.»
+کپشن اینستاگرام:
+«${topic}
+نکات کلیدی را در این پست بخوانید.
+اگر مفید بود ذخیره کنید و نظر بدهید.»
 
-ایده ویدیو یوتیوب:
-عنوان: ${topic} | راهنمای کامل و کاربردی
-مقدمه (۳۰ ثانیه) → توضیح اصلی → نکات عملی → دعوت به اقدام
+ایده ویدیو:
+عنوان جذاب + مقدمه کوتاه + محتوای اصلی + دعوت به اقدام
 
-هشتگ‌های پیشنهادی:
-#${topic.replace(/\s+/g,'')} #آموزش #محتوا
-
-این محتوا شبیه‌سازی‌شده است. پس از اتصال واقعی، امکان زمان‌بندی و انتشار مستقیم اضافه می‌شود.`;
-    output.textContent = result;
-  }, 900);
+هشتگ‌ها: #${topic.replace(/\s+/g,'')} #محتوا #آموزش`;
+  },800);
 }
 
-function analyzeAudience() {
-  const info = $('audienceInfo').value.trim();
-  if (!info) return alert('توضیح مخاطب را وارد کن.');
-  const output = $('audienceOutput');
-  output.style.display = 'block';
-  output.textContent = 'در حال تحلیل...\n\n';
-  setTimeout(() => {
-    output.textContent = `تحلیل مخاطب بر اساس ورودی شما:
+function analyzeAudience(){
+  const info=$('audienceInfo').value.trim();
+  if(!info) return alert('توضیح را وارد کن');
+  const out=$('audienceOutput');
+  out.style.display='block';
+  out.textContent='در حال تحلیل...\n\n';
+  setTimeout(()=>{
+    out.textContent=`تحلیل بر اساس ورودی شما:
 
 ${info}
 
-پیشنهادهای هوشمند برای افزایش مخاطب:
-1. محتوای آموزشی کوتاه و کاربردی روزانه
-2. پشت‌صحنه و داستان شخصی برای ارتباط عمیق‌تر
-3. چالش یا سؤال تعاملی برای افزایش کامنت
-4. ترکیب ویدیو کوتاه + پست کاروسل
-5. همکاری با صفحات هم‌موضوع
+پیشنهادها:
+1. محتوای آموزشی کوتاه روزانه
+2. پشت‌صحنه و داستان شخصی
+3. سؤال و چالش تعاملی
+4. ترکیب پست و ویدیو کوتاه
+5. همکاری با صفحات مرتبط
 
-تمرکز اصلی: ارزش مداوم + تعامل واقعی
-این تحلیل شبیه‌سازی‌شده است و با داده‌های واقعی دقیق‌تر می‌شود.`;
-  }, 1000);
+تمرکز: ارزش مداوم + تعامل واقعی`;
+  },900);
 }
 
-function addCommand() {
-  const text = $('commandText').value.trim();
-  if (!text) return alert('شرح فرمان را وارد کن.');
-  commands.unshift({ id: Date.now(), text, status: 'در انتظار بررسی', created: new Date().toLocaleString('fa-IR') });
-  write('betriz_commands', commands);
-  $('commandText').value = '';
+function saveLearning(){
+  learning = {
+    goal: $('learningGoal').value.trim(),
+    days: parseInt($('learningDays').value)||0
+  };
+  write('betriz_learning',learning);
+  $('learningStatus').textContent = 'هدف یادگیری ذخیره شد.';
+  setTimeout(()=>$('learningStatus').textContent='',2500);
+}
+
+function proposeCloud(){
+  proposeUpgrade('cloud');
+}
+
+function addCommand(){
+  const text=$('commandText').value.trim();
+  if(!text) return alert('شرح فرمان را وارد کن');
+  commands.unshift({id:Date.now(),text,status:'در انتظار بررسی',created:new Date().toLocaleString('fa-IR')});
+  write('betriz_commands',commands);
+  $('commandText').value='';
   renderCommands();
   updateStats();
 }
-function renderCommands() {
-  const list = $('commandList');
-  list.innerHTML = '';
-  commands.forEach(c => {
-    const item = document.createElement('div');
-    item.className = 'item';
-    item.innerHTML = `<p>\( {c.text}</p><small class="muted"> \){c.created||''}</small><br><span class="status">${c.status}</span>`;
-    const row = document.createElement('div');
-    row.className = 'row';
-    const approve = document.createElement('button');
-    approve.textContent = 'تأیید (نمایشی)';
-    approve.onclick = () => {
-      if (!confirm('فقط وضعیت تغییر کند؟')) return;
-      c.status = 'تأییدشده (بدون اجرا)';
-      write('betriz_commands', commands);
+
+function renderCommands(){
+  const list=$('commandList');
+  list.innerHTML='';
+  commands.forEach(c=>{
+    const item=document.createElement('div');
+    item.className='item';
+    item.innerHTML=`<p>\( {c.text}</p><small class="muted"> \){c.created||''}</small><br><span class="status">${c.status}</span>`;
+    const row=document.createElement('div');
+    row.className='row';
+    const approve=document.createElement('button');
+    approve.textContent='تأیید (نمایشی)';
+    approve.onclick=()=>{
+      if(!confirm('فقط وضعیت تغییر کند؟')) return;
+      c.status='تأییدشده (بدون اجرا)';
+      write('betriz_commands',commands);
       renderCommands();
     };
-    const remove = document.createElement('button');
-    remove.textContent = 'حذف';
-    remove.className = 'danger';
-    remove.onclick = () => {
-      commands = commands.filter(x => x.id !== c.id);
-      write('betriz_commands', commands);
+    const remove=document.createElement('button');
+    remove.textContent='حذف';
+    remove.className='danger';
+    remove.onclick=()=>{
+      commands=commands.filter(x=>x.id!==c.id);
+      write('betriz_commands',commands);
       renderCommands();
       updateStats();
     };
-    row.append(approve, remove);
+    row.append(approve,remove);
     item.appendChild(row);
     list.appendChild(item);
   });
 }
 
-function proposeUpgrade(type) {
-  const titles = {
-    'local-llm': 'فعال‌سازی مدل هوش مصنوعی محلی واقعی',
-    'internet': 'دسترسی واقعی به اینترنت و تحقیق زنده',
-    'social': 'اتصال واقعی اینستاگرام و یوتیوب',
-    'video': 'ساخت و انتشار ویدیو'
+function proposeUpgrade(type){
+  const titles={
+    'local-llm':'مدل محلی واقعی',
+    'internet':'اینترنت زنده',
+    'social':'اتصال واقعی اینستاگرام/یوتیوب',
+    'video':'ساخت و انتشار ویدیو',
+    'cloud':'فضای ابری برای گسترش'
   };
-  if (upgrades.find(u => u.type === type && u.status.includes('در انتظار'))) {
-    return alert('این پیشنهاد قبلاً ثبت شده.');
-  }
-  upgrades.unshift({
-    id: Date.now(), type,
-    title: titles[type] || type,
-    status: 'در انتظار تأیید صاحب',
-    created: new Date().toLocaleString('fa-IR')
-  });
-  write('betriz_upgrades', upgrades);
+  if(upgrades.find(u=>u.type===type && u.status.includes('در انتظار'))) return alert('قبلاً ثبت شده');
+  upgrades.unshift({id:Date.now(),type,title:titles[type]||type,status:'در انتظار تأیید صاحب',created:new Date().toLocaleString('fa-IR')});
+  write('betriz_upgrades',upgrades);
   renderUpgrades();
-  alert('پیشنهاد ثبت شد. می‌توانی تأیید یا رد کنی.');
+  alert('پیشنهاد ثبت شد');
 }
-function renderUpgrades() {
-  const list = $('upgradeList');
-  list.innerHTML = '';
-  if (!upgrades.length) {
-    list.innerHTML = '<p class="muted">هیچ پیشنهادی در انتظار نیست.</p>';
-    return;
-  }
-  upgrades.forEach(u => {
-    const item = document.createElement('div');
-    item.className = 'item';
-    item.innerHTML = `<p><strong>\( {u.title}</strong></p><small class="muted"> \){u.created}</small><br><span class="status">${u.status}</span>`;
-    if (u.status.includes('در انتظار')) {
-      const row = document.createElement('div');
-      row.className = 'row';
-      const yes = document.createElement('button');
-      yes.className = 'primary';
-      yes.textContent = 'تأیید می‌کنم';
-      yes.onclick = () => {
-        if (!confirm('تأیید فقط وضعیت را تغییر می‌دهد.')) return;
-        u.status = 'تأییدشده توسط صاحب';
-        write('betriz_upgrades', upgrades);
+
+function renderUpgrades(){
+  const list=$('upgradeList');
+  list.innerHTML='';
+  if(!upgrades.length){list.innerHTML='<p class="muted">هیچ پیشنهادی نیست</p>';return}
+  upgrades.forEach(u=>{
+    const item=document.createElement('div');
+    item.className='item';
+    item.innerHTML=`<p><strong>\( {u.title}</strong></p><small class="muted"> \){u.created}</small><br><span class="status">${u.status}</span>`;
+    if(u.status.includes('در انتظار')){
+      const row=document.createElement('div');
+      row.className='row';
+      const yes=document.createElement('button');
+      yes.className='primary';
+      yes.textContent='تأیید';
+      yes.onclick=()=>{
+        if(!confirm('فقط وضعیت تغییر کند؟')) return;
+        u.status='تأییدشده توسط صاحب';
+        write('betriz_upgrades',upgrades);
         renderUpgrades();
       };
-      const no = document.createElement('button');
-      no.className = 'danger';
-      no.textContent = 'رد می‌کنم';
-      no.onclick = () => {
-        u.status = 'ردشده';
-        write('betriz_upgrades', upgrades);
+      const no=document.createElement('button');
+      no.className='danger';
+      no.textContent='رد';
+      no.onclick=()=>{
+        u.status='ردشده';
+        write('betriz_upgrades',upgrades);
         renderUpgrades();
       };
-      row.append(yes, no);
+      row.append(yes,no);
       item.appendChild(row);
     }
     list.appendChild(item);
   });
 }
 
-function renderNotes() {
-  const list = $('memoryList');
-  list.innerHTML = '';
-  const all = [...notes, ...knowledge.map(k => ({ text: `دانش: ${k.topic}`, date: k.date }))];
-  if (!all.length) {
-    list.innerHTML = '<p class="muted">حافظه خالی است.</p>';
-    return;
-  }
-  all.forEach(n => {
-    const div = document.createElement('div');
-    div.className = 'item';
-    div.innerHTML = `<p>\( {n.text}</p><small class="muted"> \){n.date||''}</small>`;
+function renderNotes(){
+  const list=$('memoryList');
+  list.innerHTML='';
+  const all=[...notes,...knowledge.map(k=>({text:`دانش: ${k.topic}`,date:k.date}))];
+  if(!all.length){list.innerHTML='<p class="muted">خالی است</p>';return}
+  all.forEach(n=>{
+    const div=document.createElement('div');
+    div.className='item';
+    div.innerHTML=`<p>\( {n.text}</p><small class="muted"> \){n.date||''}</small>`;
     list.appendChild(div);
   });
 }
-function clearNotes() {
-  if (!confirm('همه حافظه پاک شود؟')) return;
-  notes = [];
-  knowledge = [];
-  write('betriz_notes', notes);
-  write('betriz_knowledge', knowledge);
+
+function clearNotes(){
+  if(!confirm('همه پاک شود؟')) return;
+  notes=[];knowledge=[];
+  write('betriz_notes',notes);
+  write('betriz_knowledge',knowledge);
   renderNotes();
 }
 
-function exportData() {
-  const data = {
-    version: 5,
-    exportedAt: new Date().toISOString(),
-    identity, commands, notes, chatHistory, upgrades, knowledge
-  };
-  const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url;
-  a.download = `betriz-final-backup-${Date.now()}.json`;
-  a.click();
+function exportData(){
+  const data={version:6,exportedAt:new Date().toISOString(),identity,commands,notes,chatHistory,upgrades,knowledge,learning};
+  const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  a.href=url;a.download=`betriz-final-${Date.now()}.json`;a.click();
   URL.revokeObjectURL(url);
-  $('backupStatus').textContent = 'پشتیبان آماده شد.';
-}
-function importData(event) {
-  const file = event.target.files[0];
-  if (!file) return;
-  const reader = new FileReader();
-  reader.onload = e => {
-    try {
-      const data = JSON.parse(e.target.result);
-      if (data.identity) { identity = data.identity; write('betriz_identity', identity); }
-      if (data.commands) { commands = data.commands; write('betriz_commands', commands); }
-      if (data.notes) { notes = data.notes; write('betriz_notes', notes); }
-      if (data.chatHistory) { chatHistory = data.chatHistory; write('betriz_chat', chatHistory); }
-      if (data.upgrades) { upgrades = data.upgrades; write('betriz_upgrades', upgrades); }
-      if (data.knowledge) { knowledge = data.knowledge; write('betriz_knowledge', knowledge); }
-      updateStats();
-      $('backupStatus').textContent = 'بازیابی موفق بود.';
-      alert('داده‌ها بازیابی شدند.');
-    } catch {
-      alert('فایل نامعتبر است.');
-    }
-  };
-  reader.readAsText(file);
-  event.target.value = '';
+  $('backupStatus').textContent='پشتیبان آماده شد';
 }
 
-loadIdentity();
+function importData(e){
+  const file=e.target.files[0];
+  if(!file) return;
+  const reader=new FileReader();
+  reader.onload=ev=>{
+    try{
+      const data=JSON.parse(ev.target.result);
+      if(data.identity){identity=data.identity;write('betriz_identity',identity)}
+      if(data.commands){commands=data.commands;write('betriz_commands',commands)}
+      if(data.notes){notes=data.notes;write('betriz_notes',notes)}
+      if(data.chatHistory){chatHistory=data.chatHistory;write('betriz_chat',chatHistory)}
+      if(data.upgrades){upgrades=data.upgrades;write('betriz_upgrades',upgrades)}
+      if(data.knowledge){knowledge=data.knowledge;write('betriz_knowledge',knowledge)}
+      if(data.learning){learning=data.learning;write('betriz_learning',learning)}
+      updateStats();
+      $('backupStatus').textContent='بازیابی موفق';
+      alert('داده‌ها بازیابی شدند');
+    }catch{alert('فایل نامعتبر')}
+  };
+  reader.readAsText(file);
+  e.target.value='';
+}
+
 updateStats();
 renderChat();
 </script>
 </body>
-</html>
+  </html>
