@@ -7,75 +7,269 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <title>بت‌ریز | دستیار مرکزی</title>
-<link rel="manifest" href="data:application/manifest+json;base64,eyJuYW1lIjoi2KjYr9ix24zYqiIsInNob3J0X25hbWUiOiLYqNiv2LHbjNiqIiwiZGlzcGxheSI6InN0YW5kYWxvbmUiLCJiYWNrZ3JvdW5kX2NvbG9yIjoiIzBiMTEyMCIsInRoZW1lX2NvbG9yIjoiIzBiMTEyMCIsInN0YXJ0X3VybCI6Ii4iLCJpY29ucyI6W119">
 <style>
-:root{--bg:#0b1120;--panel:#141e30;--line:#29364b;--text:#edf3ff;--muted:#a7b5ca;--accent:#66e0c2;--warn:#ffcc80;--danger:#ff8a9a;--user:#1a3358;--bot:#152e28}
-*{box-sizing:border-box;margin:0;padding:0}
-body{background:var(--bg);color:var(--text);font-family:Tahoma,Arial,sans-serif;line-height:1.6;height:100vh;display:flex;flex-direction:column;overflow:hidden}
-header{padding:12px 16px;background:#101827;border-bottom:1px solid var(--line);flex-shrink:0}
-h1{font-size:18px;color:var(--accent)}
-header p{font-size:11px;color:var(--muted)}
-nav{display:flex;flex-wrap:wrap;gap:4px;padding:8px 12px;background:#0d1525;border-bottom:1px solid var(--line);flex-shrink:0;overflow-x:auto}
-nav button{border:1px solid var(--line);background:#1e2a3d;color:var(--text);padding:7px 10px;border-radius:8px;font-size:11.5px;white-space:nowrap}
-nav button.active{background:var(--accent);color:#06221c;font-weight:bold}
-main{flex:1;overflow-y:auto;padding:12px;max-width:900px;margin:0 auto;width:100%}
-.panel{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px;margin-bottom:12px}
-h2{font-size:15px;margin-bottom:10px}
-.muted{color:var(--muted);font-size:12px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(100px,1fr));gap:6px}
-.stat{background:#0f1828;border:1px solid var(--line);border-radius:9px;padding:9px;text-align:center}
-.stat strong{display:block;font-size:13px;color:var(--accent)}
-label{display:block;margin:8px 0 4px;font-size:12.5px}
-input,textarea,select{width:100%;padding:9px 11px;border-radius:8px;background:#0b1423;border:1px solid var(--line);color:var(--text);font:inherit}
-textarea{min-height:70px;resize:vertical}
-button{font:inherit;cursor:pointer;border:1px solid var(--line);background:#1e2a3d;color:var(--text);padding:8px 12px;border-radius:8px;font-size:12.5px}
-button.primary{background:var(--accent);color:#06221c;border-color:var(--accent);font-weight:bold}
-button.danger{border-color:#a94d58;color:var(--danger)}
-.row{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
-.row button{flex:1;min-width:80px}
-.item{background:#0f1828;border:1px solid var(--line);border-radius:8px;padding:10px;margin-top:7px}
-.status{display:inline-block;padding:2px 7px;border-radius:5px;background:#27374a;color:var(--warn);font-size:11px}
-.badge{display:inline-block;background:#1a3a32;color:var(--accent);padding:1px 6px;border-radius:4px;font-size:10.5px}
-.output{background:#0c1524;border:1px solid var(--line);border-radius:8px;padding:12px;margin-top:10px;font-size:13px;white-space:pre-wrap;max-height:320px;overflow-y:auto}
-.notice{background:#241f19;border-right:3px solid var(--warn);border-radius:7px;padding:8px 11px;font-size:12px;margin-bottom:12px;color:#e8d9b5}
-section[hidden]{display:none!important}
+:root {
+  --bg: #0b1120;
+  --panel: #141e30;
+  --line: #29364b;
+  --text: #edf3ff;
+  --muted: #a7b5ca;
+  --accent: #66e0c2;
+  --warn: #ffcc80;
+  --danger: #ff8a9a;
+  --user: #1a3358;
+  --bot: #152e28;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: Tahoma, Arial, sans-serif;
+  line-height: 1.6;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+header {
+  padding: 12px 16px;
+  background: #101827;
+  border-bottom: 1px solid var(--line);
+  flex-shrink: 0;
+}
+h1 { font-size: 18px; color: var(--accent); }
+header p { font-size: 11px; color: var(--muted); margin-top: 2px; }
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding: 8px 12px;
+  background: #0d1525;
+  border-bottom: 1px solid var(--line);
+  flex-shrink: 0;
+  overflow-x: auto;
+}
+nav button {
+  border: 1px solid var(--line);
+  background: #1e2a3d;
+  color: var(--text);
+  padding: 7px 10px;
+  border-radius: 8px;
+  font-size: 11.5px;
+  white-space: nowrap;
+  cursor: pointer;
+}
+nav button.active {
+  background: var(--accent);
+  color: #06221c;
+  font-weight: bold;
+}
+main {
+  flex: 1;
+  overflow-y: auto;
+  padding: 12px;
+  max-width: 900px;
+  margin: 0 auto;
+  width: 100%;
+}
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 14px;
+  margin-bottom: 12px;
+}
+h2 { font-size: 15px; margin-bottom: 10px; }
+.muted { color: var(--muted); font-size: 12px; }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 6px;
+}
+.stat {
+  background: #0f1828;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  padding: 9px;
+  text-align: center;
+}
+.stat strong {
+  display: block;
+  font-size: 13px;
+  color: var(--accent);
+}
+label {
+  display: block;
+  margin: 8px 0 4px;
+  font-size: 12.5px;
+}
+input, textarea, select {
+  width: 100%;
+  padding: 9px 11px;
+  border-radius: 8px;
+  background: #0b1423;
+  border: 1px solid var(--line);
+  color: var(--text);
+  font: inherit;
+}
+textarea { min-height: 70px; resize: vertical; }
+button {
+  font: inherit;
+  cursor: pointer;
+  border: 1px solid var(--line);
+  background: #1e2a3d;
+  color: var(--text);
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 12.5px;
+}
+button.primary {
+  background: var(--accent);
+  color: #06221c;
+  border-color: var(--accent);
+  font-weight: bold;
+}
+button.danger {
+  border-color: #a94d58;
+  color: var(--danger);
+}
+.row {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+.row button { flex: 1; min-width: 80px; }
+.item {
+  background: #0f1828;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 10px;
+  margin-top: 7px;
+}
+.status {
+  display: inline-block;
+  padding: 2px 7px;
+  border-radius: 5px;
+  background: #27374a;
+  color: var(--warn);
+  font-size: 11px;
+}
+.badge {
+  display: inline-block;
+  background: #1a3a32;
+  color: var(--accent);
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-size: 10.5px;
+}
+.output {
+  background: #0c1524;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 12px;
+  margin-top: 10px;
+  font-size: 13px;
+  white-space: pre-wrap;
+  max-height: 320px;
+  overflow-y: auto;
+}
+.notice {
+  background: #241f19;
+  border-right: 3px solid var(--warn);
+  border-radius: 7px;
+  padding: 8px 11px;
+  font-size: 12px;
+  margin-bottom: 12px;
+  color: #e8d9b5;
+}
+section[hidden] { display: none !important; }
 
-/* چت واقعی */
-#chatSection{display:flex;flex-direction:column;height:100%}
-.chat-messages{flex:1;overflow-y:auto;padding:10px 4px;display:flex;flex-direction:column;gap:8px}
-.msg{max-width:85%;padding:9px 12px;border-radius:12px;font-size:13.5px;line-height:1.5}
-.msg.user{align-self:flex-start;background:var(--user)}
-.msg.bot{align-self:flex-end;background:var(--bot);border:1px solid #2a4a40}
-.msg small{display:block;font-size:10px;color:var(--muted);margin-top:3px}
-.chat-input-bar{display:flex;gap:8px;padding:10px;background:#101827;border-top:1px solid var(--line);flex-shrink:0}
-.chat-input-bar textarea{flex:1;min-height:44px;max-height:100px;resize:none;padding:10px;border-radius:10px}
-.chat-input-bar button{height:44px;min-width:64px}
+/* چت */
+#chat-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.chat-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 10px 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.msg {
+  max-width: 85%;
+  padding: 9px 12px;
+  border-radius: 12px;
+  font-size: 13.5px;
+  line-height: 1.5;
+  word-wrap: break-word;
+}
+.msg.user {
+  align-self: flex-start;
+  background: var(--user);
+}
+.msg.bot {
+  align-self: flex-end;
+  background: var(--bot);
+  border: 1px solid #2a4a40;
+}
+.msg small {
+  display: block;
+  font-size: 10px;
+  color: var(--muted);
+  margin-top: 3px;
+}
+.chat-input-bar {
+  display: flex;
+  gap: 8px;
+  padding: 10px;
+  background: #101827;
+  border-top: 1px solid var(--line);
+  flex-shrink: 0;
+}
+.chat-input-bar textarea {
+  flex: 1;
+  min-height: 44px;
+  max-height: 100px;
+  resize: none;
+  padding: 10px;
+  border-radius: 10px;
+}
+.chat-input-bar button {
+  height: 44px;
+  min-width: 64px;
+}
 </style>
 </head>
 <body>
+
 <header>
   <h1>بت‌ریز</h1>
   <p>دستیار مرکزی · نسخه کامل نهایی · مکالمه واقعی + تنظیمات</p>
 </header>
 
 <nav id="mainNav">
-  <button onclick="showPage('home')" class="active">خانه</button>
-  <button onclick="showPage('chat')">گفت‌وگو</button>
-  <button onclick="showPage('research')">تحقیق</button>
-  <button onclick="showPage('coding')">کدنویسی</button>
-  <button onclick="showPage('content')">محتوا</button>
-  <button onclick="showPage('audience')">مخاطب</button>
-  <button onclick="showPage('settings')">تنظیمات</button>
-  <button onclick="showPage('commands')">فرمان‌ها</button>
-  <button onclick="showPage('tools')">ارتقا</button>
-  <button onclick="showPage('memory')">حافظه</button>
-  <button onclick="showPage('backup')">پشتیبان</button>
+  <button data-page="home" class="active">خانه</button>
+  <button data-page="chat">گفت‌وگو</button>
+  <button data-page="research">تحقیق</button>
+  <button data-page="coding">کدنویسی</button>
+  <button data-page="content">محتوا</button>
+  <button data-page="audience">مخاطب</button>
+  <button data-page="settings">تنظیمات</button>
+  <button data-page="commands">فرمان‌ها</button>
+  <button data-page="tools">ارتقا</button>
+  <button data-page="memory">حافظه</button>
+  <button data-page="backup">پشتیبان</button>
 </nav>
 
 <main id="mainContent">
+
   <!-- خانه -->
   <section id="home">
-    <div class="notice">نسخه کامل نهایی. همه قابلیت‌ها شبیه‌سازی‌شده و تحت کنترل تو هستند. اتصال واقعی در آینده با تأیید تو فعال می‌شود.</div>
+    <div class="notice">نسخه کامل نهایی. همه قابلیت‌ها شبیه‌سازی‌شده و تحت کنترل تو هستند.</div>
     <div class="panel">
       <h2>مرکز فرماندهی</h2>
       <div class="grid">
@@ -87,17 +281,17 @@ section[hidden]{display:none!important}
     </div>
     <div class="panel">
       <h2>وضعیت</h2>
-      <p class="muted">بت‌ریز آماده همکاری است. از گفت‌وگو برای مکالمه روان استفاده کن. از تنظیمات برای مدیریت قابلیت‌ها، هدف یادگیری و فضای ابری استفاده کن.</p>
+      <p class="muted">بت‌ریز آماده همکاری است. از گفت‌وگو برای مکالمه روان استفاده کن.</p>
     </div>
   </section>
 
-  <!-- گفت‌وگو واقعی -->
+  <!-- گفت‌وگو -->
   <section id="chat" hidden>
-    <div id="chatSection">
+    <div id="chat-wrapper">
       <div class="chat-messages" id="chatBox"></div>
       <div class="chat-input-bar">
         <textarea id="chatInput" placeholder="پیام خود را بنویس..." rows="1"></textarea>
-        <button class="primary" onclick="sendMessage()">ارسال</button>
+        <button class="primary" id="sendBtn">ارسال</button>
       </div>
     </div>
   </section>
@@ -106,9 +300,11 @@ section[hidden]{display:none!important}
   <section id="research" hidden>
     <div class="panel">
       <h2>تحقیق و یادگیری</h2>
-      <p class="muted">موضوع را بنویس تا تحقیق شبیه‌سازی‌شده انجام شود و دانش ذخیره شود.</p>
+      <p class="muted">موضوع را بنویس تا تحقیق شبیه‌سازی‌شده انجام شود.</p>
       <textarea id="researchTopic" placeholder="موضوع تحقیق..."></textarea>
-      <div class="row"><button class="primary" onclick="doResearch()">شروع تحقیق</button></div>
+      <div class="row">
+        <button class="primary" id="researchBtn">شروع تحقیق</button>
+      </div>
       <div id="researchOutput" class="output" style="display:none"></div>
     </div>
   </section>
@@ -119,7 +315,9 @@ section[hidden]{display:none!important}
       <h2>کدنویسی و ساخت پروژه</h2>
       <p class="muted">توضیح بده چه چیزی می‌خواهی ساخته شود.</p>
       <textarea id="codeRequest" placeholder="توضیح پروژه یا درخواست کد..."></textarea>
-      <div class="row"><button class="primary" onclick="generateCode()">تولید کد</button></div>
+      <div class="row">
+        <button class="primary" id="codeBtn">تولید کد</button>
+      </div>
       <div id="codeOutput" class="output" style="display:none"></div>
     </div>
   </section>
@@ -131,10 +329,21 @@ section[hidden]{display:none!important}
       <label>موضوع</label>
       <input id="contentTopic" placeholder="موضوع محتوا">
       <label>پلتفرم</label>
-      <select id="contentPlatform"><option>اینستاگرام</option><option>یوتیوب</option><option>هر دو</option></select>
+      <select id="contentPlatform">
+        <option>اینستاگرام</option>
+        <option>یوتیوب</option>
+        <option>هر دو</option>
+      </select>
       <label>هدف</label>
-      <select id="contentGoal"><option>جذب مخاطب</option><option>افزایش تعامل</option><option>آموزشی</option><option>فروش</option></select>
-      <div class="row"><button class="primary" onclick="generateContent()">تولید محتوا</button></div>
+      <select id="contentGoal">
+        <option>جذب مخاطب</option>
+        <option>افزایش تعامل</option>
+        <option>آموزشی</option>
+        <option>فروش</option>
+      </select>
+      <div class="row">
+        <button class="primary" id="contentBtn">تولید محتوا</button>
+      </div>
       <div id="contentOutput" class="output" style="display:none"></div>
     </div>
   </section>
@@ -144,7 +353,9 @@ section[hidden]{display:none!important}
     <div class="panel">
       <h2>تحلیل مخاطب و پیشنهاد</h2>
       <textarea id="audienceInfo" placeholder="مخاطبان فعلی و هدف خود را توضیح بده..."></textarea>
-      <div class="row"><button class="primary" onclick="analyzeAudience()">تحلیل و پیشنهاد</button></div>
+      <div class="row">
+        <button class="primary" id="audienceBtn">تحلیل و پیشنهاد</button>
+      </div>
       <div id="audienceOutput" class="output" style="display:none"></div>
     </div>
   </section>
@@ -153,9 +364,9 @@ section[hidden]{display:none!important}
   <section id="settings" hidden>
     <div class="panel">
       <h2>تنظیمات و دسترسی‌ها</h2>
-      <p class="muted">از اینجا قابلیت‌ها را مدیریت کن، هدف یادگیری تعریف کن و فضای ابری را کنترل کن.</p>
+      <p class="muted">قابلیت‌ها، هدف یادگیری و فضای ابری را از اینجا مدیریت کن.</p>
 
-      <h3 style="margin-top:14px">قابلیت‌های فعلی و آینده</h3>
+      <h3 style="margin-top:14px;font-size:14px">قابلیت‌های فعلی و آینده</h3>
       <div class="item"><span class="badge">فعال</span> گفت‌وگو + حافظه</div>
       <div class="item"><span class="badge">فعال</span> تحقیق شبیه‌سازی</div>
       <div class="item"><span class="badge">فعال</span> کدنویسی شبیه‌سازی</div>
@@ -165,20 +376,22 @@ section[hidden]{display:none!important}
       <div class="item"><span class="badge">غیرفعال</span> اینترنت زنده</div>
       <div class="item"><span class="badge">غیرفعال</span> اتصال اینستاگرام/یوتیوب واقعی</div>
       <div class="item"><span class="badge">غیرفعال</span> ساخت ویدیو</div>
-      <div class="item"><span class="badge">غیرفعال</span> فضای ابری برای گسترش</div>
+      <div class="item"><span class="badge">غیرفعال</span> فضای ابری</div>
 
-      <h3 style="margin-top:16px">هدف یادگیری و زمان‌بندی</h3>
+      <h3 style="margin-top:16px;font-size:14px">هدف یادگیری و زمان‌بندی</h3>
       <label>هدف یادگیری</label>
       <textarea id="learningGoal" placeholder="مثلاً: تا ۳۰ روز آینده به سطح ساخت سایت کامل برس"></textarea>
       <label>مهلت (روز)</label>
       <input type="number" id="learningDays" placeholder="تعداد روز" min="1">
-      <div class="row"><button class="primary" onclick="saveLearning()">ذخیره هدف یادگیری</button></div>
+      <div class="row">
+        <button class="primary" id="saveLearningBtn">ذخیره هدف یادگیری</button>
+      </div>
       <p id="learningStatus" class="muted"></p>
 
-      <h3 style="margin-top:16px">فضای ابری (شبیه‌سازی)</h3>
-      <p class="muted">برای گسترش دانش و مدل در آینده. فعلاً فقط ثبت درخواست است.</p>
+      <h3 style="margin-top:16px;font-size:14px">فضای ابری</h3>
+      <p class="muted">برای گسترش دانش در آینده. فعلاً فقط ثبت درخواست است.</p>
       <div class="row">
-        <button onclick="proposeCloud()">درخواست فعال‌سازی فضای ابری</button>
+        <button id="cloudBtn">درخواست فعال‌سازی فضای ابری</button>
       </div>
     </div>
   </section>
@@ -188,7 +401,9 @@ section[hidden]{display:none!important}
     <div class="panel">
       <h2>فرمان‌ها</h2>
       <textarea id="commandText" placeholder="شرح فرمان..."></textarea>
-      <div class="row"><button class="primary" onclick="addCommand()">ثبت فرمان</button></div>
+      <div class="row">
+        <button class="primary" id="addCommandBtn">ثبت فرمان</button>
+      </div>
       <div id="commandList"></div>
     </div>
   </section>
@@ -197,28 +412,28 @@ section[hidden]{display:none!important}
   <section id="tools" hidden>
     <div class="panel">
       <h2>سیستم ارتقا</h2>
-      <p class="muted">بت‌ریز می‌تواند پیشنهاد بدهد. فقط با تأیید تو فعال می‌شود.</p>
+      <p class="muted">هر ارتقا فقط با تأیید تو فعال می‌شود.</p>
       <div class="item">
         <p><span class="badge">غیرفعال</span> مدل محلی واقعی</p>
-        <button onclick="proposeUpgrade('local-llm')" style="margin-top:6px">پیشنهاد</button>
+        <button data-upgrade="local-llm" style="margin-top:6px">پیشنهاد</button>
       </div>
       <div class="item">
         <p><span class="badge">غیرفعال</span> اینترنت زنده</p>
-        <button onclick="proposeUpgrade('internet')" style="margin-top:6px">پیشنهاد</button>
+        <button data-upgrade="internet" style="margin-top:6px">پیشنهاد</button>
       </div>
       <div class="item">
         <p><span class="badge">غیرفعال</span> شبکه‌های اجتماعی واقعی</p>
-        <button onclick="proposeUpgrade('social')" style="margin-top:6px">پیشنهاد</button>
+        <button data-upgrade="social" style="margin-top:6px">پیشنهاد</button>
       </div>
       <div class="item">
         <p><span class="badge">غیرفعال</span> ساخت ویدیو</p>
-        <button onclick="proposeUpgrade('video')" style="margin-top:6px">پیشنهاد</button>
+        <button data-upgrade="video" style="margin-top:6px">پیشنهاد</button>
       </div>
       <div class="item">
         <p><span class="badge">غیرفعال</span> فضای ابری</p>
-        <button onclick="proposeUpgrade('cloud')" style="margin-top:6px">پیشنهاد</button>
+        <button data-upgrade="cloud" style="margin-top:6px">پیشنهاد</button>
       </div>
-      <h3>پیشنهادهای در انتظار</h3>
+      <h3 style="margin-top:14px;font-size:14px">پیشنهادهای در انتظار</h3>
       <div id="upgradeList"></div>
     </div>
   </section>
@@ -228,7 +443,7 @@ section[hidden]{display:none!important}
     <div class="panel">
       <h2>حافظه محلی</h2>
       <div id="memoryList"></div>
-      <button class="danger" onclick="clearNotes()" style="margin-top:10px">حذف همه</button>
+      <button class="danger" id="clearNotesBtn" style="margin-top:10px">حذف همه</button>
     </div>
   </section>
 
@@ -237,378 +452,495 @@ section[hidden]{display:none!important}
     <div class="panel">
       <h2>پشتیبان‌گیری</h2>
       <div class="row">
-        <button class="primary" onclick="exportData()">دریافت پشتیبان</button>
-        <button onclick="document.getElementById('importFile').click()">بازیابی</button>
+        <button class="primary" id="exportBtn">دریافت پشتیبان</button>
+        <button id="importBtn">بازیابی</button>
       </div>
-      <input type="file" id="importFile" accept=".json" hidden onchange="importData(event)">
+      <input type="file" id="importFile" accept=".json" hidden>
       <p id="backupStatus" class="muted" style="margin-top:8px"></p>
     </div>
   </section>
+
 </main>
 
 <script>
-const $ = id => document.getElementById(id);
-const read = (k,f) => { try{const v=localStorage.getItem(k);return v===null?f:JSON.parse(v)}catch{return f} };
-const write = (k,v) => localStorage.setItem(k,JSON.stringify(v));
-
-let commands = read('betriz_commands',[]);
-let notes = read('betriz_notes',[]);
-let chatHistory = read('betriz_chat',[]);
-let upgrades = read('betriz_upgrades',[]);
-let knowledge = read('betriz_knowledge',[]);
-let learning = read('betriz_learning',{goal:'',days:0});
-let identity = read('betriz_identity',{
-  name:'بت‌ریز',origin:'تبریز',language:'فارسی',
-  mission:'همکاری نزدیک با صاحب برای تبدیل ایده‌ها به واقعیت و ساخت دنیای بهتر. هر اقدام خارجی فقط با تأیید صاحب.',
-  style:'صادق، شفاف، صبور و دقیق.'
-});
-
-function showPage(id){
-  document.querySelectorAll('main section').forEach(s=>s.hidden=s.id!==id);
-  document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));
-  const btn = [...document.querySelectorAll('nav button')].find(b=>b.textContent.includes(
-    id==='home'?'خانه':id==='chat'?'گفت‌وگو':id==='research'?'تحقیق':id==='coding'?'کدنویسی':
-    id==='content'?'محتوا':id==='audience'?'مخاطب':id==='settings'?'تنظیمات':id==='commands'?'فرمان‌ها':
-    id==='tools'?'ارتقا':id==='memory'?'حافظه':'پشتیبان'
-  ));
-  if(btn) btn.classList.add('active');
-
-  if(id==='chat'){renderChat();setTimeout(()=>$('chatInput').focus(),150)}
-  if(id==='commands') renderCommands();
-  if(id==='memory') renderNotes();
-  if(id==='tools') renderUpgrades();
-  if(id==='settings'){
-    $('learningGoal').value = learning.goal||'';
-    $('learningDays').value = learning.days||'';
-  }
-  updateStats();
-}
-
-function updateStats(){$('commandCount').textContent=commands.length.toLocaleString('fa-IR')}
-
-function generateReply(text){
-  if(/سلام|درود|صبح|عصر/.test(text)) return 'سلام. من بت‌ریز هستم. آماده‌ام. بگو چه کاری انجام دهیم؟';
-  if(/هدف|مأموریت|چی هستی/.test(text)) return `مأموریت من:\n${identity.mission}\n\nسبک همکاری: ${identity.style}`;
-  if(/تحقیق|یادبگیر|یاد بگیر/.test(text)) return 'به بخش تحقیق برو و موضوع را بنویس.';
-  if(/کد|سایت|برنامه|بساز/.test(text)) return 'به بخش کدنویسی برو و توضیح بده چه چیزی می‌خواهی.';
-  if(/محتوا|پست|اینستا|یوتیوب/.test(text)) return 'به بخش محتوا برو و موضوع + پلتفرم را مشخص کن.';
-  if(/مخاطب|فالوور/.test(text)) return 'به بخش مخاطب برو و وضعیت را توضیح بده.';
-  if(/تنظیمات|هدف یادگیری|ابری/.test(text)) return 'به بخش تنظیمات برو. آنجا می‌توانی هدف یادگیری و فضای ابری را مدیریت کنی.';
-  if(/ارتقا|مدل|وصل/.test(text)) return 'به بخش ارتقا برو. می‌توانم پیشنهاد ثبت کنم و منتظر تأیید تو بمانم.';
-  return 'پیامت دریافت شد و در حافظه ثبت گردید.\nبگو مرحله بعد چه باشد یا از بخش‌های دیگر استفاده کن.';
-}
-
-function sendMessage(){
-  const input = $('chatInput');
-  const text = input.value.trim();
-  if(!text) return;
-  const time = new Date().toLocaleString('fa-IR');
-  chatHistory.push({role:'user',text,time});
-  chatHistory.push({role:'bot',text:generateReply(text),time});
-  if(chatHistory.length>100) chatHistory = chatHistory.slice(-80);
-  write('betriz_chat',chatHistory);
-  input.value = '';
-  input.style.height = '44px';
-  renderChat();
-  setTimeout(()=>input.focus(),30);
-}
-
-function renderChat(){
-  const box = $('chatBox');
-  box.innerHTML = '';
-  chatHistory.forEach(m=>{
-    const div = document.createElement('div');
-    div.className = 'msg ' + (m.role==='user'?'user':'bot');
-    div.innerHTML = `<div>\( {m.text.replace(/\n/g,'<br>')}</div><small> \){m.time}</small>`;
-    box.appendChild(div);
-  });
-  box.scrollTop = box.scrollHeight;
-}
-
-document.addEventListener('DOMContentLoaded',()=>{
-  const input = $('chatInput');
-  if(input){
-    input.addEventListener('keydown',e=>{
-      if(e.key==='Enter' && !e.shiftKey){e.preventDefault();sendMessage()}
-    });
-    input.addEventListener('input',function(){
-      this.style.height='auto';
-      this.style.height=Math.min(this.scrollHeight,100)+'px';
-    });
-  }
-});
-
-function doResearch(){
-  const topic=$('researchTopic').value.trim();
-  if(!topic) return alert('موضوع را وارد کن');
-  const out=$('researchOutput');
-  out.style.display='block';
-  out.textContent='در حال تحقیق...\n\n';
-  setTimeout(()=>{
-    out.textContent=`نتیجه تحقیق: «${topic}»
-
-خلاصه:
-- مفاهیم کلیدی استخراج شد
-- مراحل عملی پیشنهاد گردید
-- دانش در حافظه ذخیره شد
-
-(شبیه‌سازی‌شده – نسخه واقعی با اینترنت زنده دقیق‌تر خواهد بود)`;
-    knowledge.unshift({topic,date:new Date().toLocaleString('fa-IR')});
-    write('betriz_knowledge',knowledge);
-    notes.unshift({text:`دانش: ${topic}`,date:new Date().toLocaleString('fa-IR')});
-    write('betriz_notes',notes);
-  },1100);
-}
-
-function generateCode(){
-  const req=$('codeRequest').value.trim();
-  if(!req) return alert('توضیح را وارد کن');
-  const out=$('codeOutput');
-  out.style.display='block';
-  out.textContent='در حال تولید کد...\n\n';
-  setTimeout(()=>{
-    out.textContent=`درخواست: ${req}
-
-ساختار پیشنهادی:
-1. فایل‌های اصلی
-2. رابط کاربری
-3. منطق برنامه
-
-نمونه کد شروع:
-
-<!DOCTYPE html>
-<html lang="fa" dir="rtl">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>پروژه</title>
-<style>
-body{font-family:Tahoma;background:#0f172a;color:#e2e8f0;padding:20px}
-.container{max-width:800px;margin:auto}
-h1{color:#38bdf8}
-</style>
-</head>
-<body>
-<div class="container">
-  <h1>عنوان پروژه</h1>
-  <p>محتوای اصلی</p>
-</div>
-</body>
-</html>
-
-جزئیات بیشتر بده تا کد کامل‌تر تولید شود.`;
-  },900);
-}
-
-function generateContent(){
-  const topic=$('contentTopic').value.trim();
-  const platform=$('contentPlatform').value;
-  const goal=$('contentGoal').value;
-  if(!topic) return alert('موضوع را وارد کن');
-  const out=$('contentOutput');
-  out.style.display='block';
-  out.textContent='در حال تولید...\n\n';
-  setTimeout(()=>{
-    out.textContent=`محتوا برای ${platform}
-موضوع: ${topic}
-هدف: ${goal}
-
-کپشن اینستاگرام:
-«${topic}
-نکات کلیدی را در این پست بخوانید.
-اگر مفید بود ذخیره کنید و نظر بدهید.»
-
-ایده ویدیو:
-عنوان جذاب + مقدمه کوتاه + محتوای اصلی + دعوت به اقدام
-
-هشتگ‌ها: #${topic.replace(/\s+/g,'')} #محتوا #آموزش`;
-  },800);
-}
-
-function analyzeAudience(){
-  const info=$('audienceInfo').value.trim();
-  if(!info) return alert('توضیح را وارد کن');
-  const out=$('audienceOutput');
-  out.style.display='block';
-  out.textContent='در حال تحلیل...\n\n';
-  setTimeout(()=>{
-    out.textContent=`تحلیل بر اساس ورودی شما:
-
-${info}
-
-پیشنهادها:
-1. محتوای آموزشی کوتاه روزانه
-2. پشت‌صحنه و داستان شخصی
-3. سؤال و چالش تعاملی
-4. ترکیب پست و ویدیو کوتاه
-5. همکاری با صفحات مرتبط
-
-تمرکز: ارزش مداوم + تعامل واقعی`;
-  },900);
-}
-
-function saveLearning(){
-  learning = {
-    goal: $('learningGoal').value.trim(),
-    days: parseInt($('learningDays').value)||0
-  };
-  write('betriz_learning',learning);
-  $('learningStatus').textContent = 'هدف یادگیری ذخیره شد.';
-  setTimeout(()=>$('learningStatus').textContent='',2500);
-}
-
-function proposeCloud(){
-  proposeUpgrade('cloud');
-}
-
-function addCommand(){
-  const text=$('commandText').value.trim();
-  if(!text) return alert('شرح فرمان را وارد کن');
-  commands.unshift({id:Date.now(),text,status:'در انتظار بررسی',created:new Date().toLocaleString('fa-IR')});
-  write('betriz_commands',commands);
-  $('commandText').value='';
-  renderCommands();
-  updateStats();
-}
-
-function renderCommands(){
-  const list=$('commandList');
-  list.innerHTML='';
-  commands.forEach(c=>{
-    const item=document.createElement('div');
-    item.className='item';
-    item.innerHTML=`<p>\( {c.text}</p><small class="muted"> \){c.created||''}</small><br><span class="status">${c.status}</span>`;
-    const row=document.createElement('div');
-    row.className='row';
-    const approve=document.createElement('button');
-    approve.textContent='تأیید (نمایشی)';
-    approve.onclick=()=>{
-      if(!confirm('فقط وضعیت تغییر کند؟')) return;
-      c.status='تأییدشده (بدون اجرا)';
-      write('betriz_commands',commands);
-      renderCommands();
-    };
-    const remove=document.createElement('button');
-    remove.textContent='حذف';
-    remove.className='danger';
-    remove.onclick=()=>{
-      commands=commands.filter(x=>x.id!==c.id);
-      write('betriz_commands',commands);
-      renderCommands();
-      updateStats();
-    };
-    row.append(approve,remove);
-    item.appendChild(row);
-    list.appendChild(item);
-  });
-}
-
-function proposeUpgrade(type){
-  const titles={
-    'local-llm':'مدل محلی واقعی',
-    'internet':'اینترنت زنده',
-    'social':'اتصال واقعی اینستاگرام/یوتیوب',
-    'video':'ساخت و انتشار ویدیو',
-    'cloud':'فضای ابری برای گسترش'
-  };
-  if(upgrades.find(u=>u.type===type && u.status.includes('در انتظار'))) return alert('قبلاً ثبت شده');
-  upgrades.unshift({id:Date.now(),type,title:titles[type]||type,status:'در انتظار تأیید صاحب',created:new Date().toLocaleString('fa-IR')});
-  write('betriz_upgrades',upgrades);
-  renderUpgrades();
-  alert('پیشنهاد ثبت شد');
-}
-
-function renderUpgrades(){
-  const list=$('upgradeList');
-  list.innerHTML='';
-  if(!upgrades.length){list.innerHTML='<p class="muted">هیچ پیشنهادی نیست</p>';return}
-  upgrades.forEach(u=>{
-    const item=document.createElement('div');
-    item.className='item';
-    item.innerHTML=`<p><strong>\( {u.title}</strong></p><small class="muted"> \){u.created}</small><br><span class="status">${u.status}</span>`;
-    if(u.status.includes('در انتظار')){
-      const row=document.createElement('div');
-      row.className='row';
-      const yes=document.createElement('button');
-      yes.className='primary';
-      yes.textContent='تأیید';
-      yes.onclick=()=>{
-        if(!confirm('فقط وضعیت تغییر کند؟')) return;
-        u.status='تأییدشده توسط صاحب';
-        write('betriz_upgrades',upgrades);
-        renderUpgrades();
-      };
-      const no=document.createElement('button');
-      no.className='danger';
-      no.textContent='رد';
-      no.onclick=()=>{
-        u.status='ردشده';
-        write('betriz_upgrades',upgrades);
-        renderUpgrades();
-      };
-      row.append(yes,no);
-      item.appendChild(row);
+(function() {
+  // ابزارهای پایه
+  function $(id) { return document.getElementById(id); }
+  function read(key, fallback) {
+    try {
+      var v = localStorage.getItem(key);
+      return v === null ? fallback : JSON.parse(v);
+    } catch (e) {
+      return fallback;
     }
-    list.appendChild(item);
+  }
+  function write(key, value) {
+    localStorage.setItem(key, JSON.stringify(value));
+  }
+
+  // داده‌ها
+  var commands = read('betriz_commands', []);
+  var notes = read('betriz_notes', []);
+  var chatHistory = read('betriz_chat', []);
+  var upgrades = read('betriz_upgrades', []);
+  var knowledge = read('betriz_knowledge', []);
+  var learning = read('betriz_learning', { goal: '', days: 0 });
+  var identity = read('betriz_identity', {
+    name: 'بت‌ریز',
+    origin: 'تبریز',
+    language: 'فارسی',
+    mission: 'همکاری نزدیک با صاحب برای تبدیل ایده‌ها به واقعیت و ساخت دنیای بهتر. هر اقدام خارجی فقط با تأیید صاحب.',
+    style: 'صادق، شفاف، صبور و دقیق.'
   });
-}
 
-function renderNotes(){
-  const list=$('memoryList');
-  list.innerHTML='';
-  const all=[...notes,...knowledge.map(k=>({text:`دانش: ${k.topic}`,date:k.date}))];
-  if(!all.length){list.innerHTML='<p class="muted">خالی است</p>';return}
-  all.forEach(n=>{
-    const div=document.createElement('div');
-    div.className='item';
-    div.innerHTML=`<p>\( {n.text}</p><small class="muted"> \){n.date||''}</small>`;
-    list.appendChild(div);
+  // ناوبری
+  function showPage(id) {
+    var sections = document.querySelectorAll('main section');
+    for (var i = 0; i < sections.length; i++) {
+      sections[i].hidden = sections[i].id !== id;
+    }
+    var buttons = document.querySelectorAll('nav button');
+    for (var j = 0; j < buttons.length; j++) {
+      buttons[j].classList.remove('active');
+      if (buttons[j].getAttribute('data-page') === id) {
+        buttons[j].classList.add('active');
+      }
+    }
+    if (id === 'chat') {
+      renderChat();
+      setTimeout(function() {
+        var input = $('chatInput');
+        if (input) input.focus();
+      }, 150);
+    }
+    if (id === 'commands') renderCommands();
+    if (id === 'memory') renderNotes();
+    if (id === 'tools') renderUpgrades();
+    if (id === 'settings') {
+      $('learningGoal').value = learning.goal || '';
+      $('learningDays').value = learning.days || '';
+    }
+    updateStats();
+  }
+
+  function updateStats() {
+    var el = $('commandCount');
+    if (el) el.textContent = commands.length.toLocaleString('fa-IR');
+  }
+
+  // پاسخ‌دهی
+  function generateReply(text) {
+    if (/سلام|درود|صبح|عصر/.test(text)) {
+      return 'سلام. من بت‌ریز هستم. آماده‌ام. بگو چه کاری انجام دهیم؟';
+    }
+    if (/هدف|مأموریت|چی هستی/.test(text)) {
+      return 'مأموریت من:\n' + identity.mission + '\n\nسبک همکاری: ' + identity.style;
+    }
+    if (/تحقیق|یادبگیر|یاد بگیر/.test(text)) {
+      return 'به بخش تحقیق برو و موضوع را بنویس.';
+    }
+    if (/کد|سایت|برنامه|بساز/.test(text)) {
+      return 'به بخش کدنویسی برو و توضیح بده چه چیزی می‌خواهی.';
+    }
+    if (/محتوا|پست|اینستا|یوتیوب/.test(text)) {
+      return 'به بخش محتوا برو و موضوع + پلتفرم را مشخص کن.';
+    }
+    if (/مخاطب|فالوور/.test(text)) {
+      return 'به بخش مخاطب برو و وضعیت را توضیح بده.';
+    }
+    if (/تنظیمات|هدف یادگیری|ابری/.test(text)) {
+      return 'به بخش تنظیمات برو. آنجا می‌توانی هدف یادگیری و فضای ابری را مدیریت کنی.';
+    }
+    if (/ارتقا|مدل|وصل/.test(text)) {
+      return 'به بخش ارتقا برو. می‌توانم پیشنهاد ثبت کنم و منتظر تأیید تو بمانم.';
+    }
+    return 'پیامت دریافت شد و در حافظه ثبت گردید.\nبگو مرحله بعد چه باشد یا از بخش‌های دیگر استفاده کن.';
+  }
+
+  // چت
+  function sendMessage() {
+    var input = $('chatInput');
+    if (!input) return;
+    var text = input.value.trim();
+    if (!text) return;
+
+    var time = new Date().toLocaleString('fa-IR');
+    chatHistory.push({ role: 'user', text: text, time: time });
+    chatHistory.push({ role: 'bot', text: generateReply(text), time: time });
+
+    if (chatHistory.length > 100) {
+      chatHistory = chatHistory.slice(-80);
+    }
+    write('betriz_chat', chatHistory);
+
+    input.value = '';
+    input.style.height = '44px';
+    renderChat();
+    setTimeout(function() { input.focus(); }, 30);
+  }
+
+  function renderChat() {
+    var box = $('chatBox');
+    if (!box) return;
+    box.innerHTML = '';
+
+    for (var i = 0; i < chatHistory.length; i++) {
+      var m = chatHistory[i];
+      var div = document.createElement('div');
+      div.className = 'msg ' + (m.role === 'user' ? 'user' : 'bot');
+
+      var content = document.createElement('div');
+      var lines = (m.text || '').split('\n');
+      for (var j = 0; j < lines.length; j++) {
+        content.appendChild(document.createTextNode(lines[j]));
+        if (j < lines.length - 1) {
+          content.appendChild(document.createElement('br'));
+        }
+      }
+
+      var timeEl = document.createElement('small');
+      timeEl.textContent = m.time || '';
+
+      div.appendChild(content);
+      div.appendChild(timeEl);
+      box.appendChild(div);
+    }
+    box.scrollTop = box.scrollHeight;
+  }
+
+  // رویدادها
+  document.querySelectorAll('nav button').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      showPage(btn.getAttribute('data-page'));
+    });
   });
-}
 
-function clearNotes(){
-  if(!confirm('همه پاک شود؟')) return;
-  notes=[];knowledge=[];
-  write('betriz_notes',notes);
-  write('betriz_knowledge',knowledge);
-  renderNotes();
-}
+  var sendBtn = $('sendBtn');
+  if (sendBtn) sendBtn.addEventListener('click', sendMessage);
 
-function exportData(){
-  const data={version:6,exportedAt:new Date().toISOString(),identity,commands,notes,chatHistory,upgrades,knowledge,learning};
-  const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});
-  const url=URL.createObjectURL(blob);
-  const a=document.createElement('a');
-  a.href=url;a.download=`betriz-final-${Date.now()}.json`;a.click();
-  URL.revokeObjectURL(url);
-  $('backupStatus').textContent='پشتیبان آماده شد';
-}
+  var chatInput = $('chatInput');
+  if (chatInput) {
+    chatInput.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' && !e.shiftKey) {
+        e.preventDefault();
+        sendMessage();
+      }
+    });
+    chatInput.addEventListener('input', function() {
+      this.style.height = 'auto';
+      this.style.height = Math.min(this.scrollHeight, 100) + 'px';
+    });
+  }
 
-function importData(e){
-  const file=e.target.files[0];
-  if(!file) return;
-  const reader=new FileReader();
-  reader.onload=ev=>{
-    try{
-      const data=JSON.parse(ev.target.result);
-      if(data.identity){identity=data.identity;write('betriz_identity',identity)}
-      if(data.commands){commands=data.commands;write('betriz_commands',commands)}
-      if(data.notes){notes=data.notes;write('betriz_notes',notes)}
-      if(data.chatHistory){chatHistory=data.chatHistory;write('betriz_chat',chatHistory)}
-      if(data.upgrades){upgrades=data.upgrades;write('betriz_upgrades',upgrades)}
-      if(data.knowledge){knowledge=data.knowledge;write('betriz_knowledge',knowledge)}
-      if(data.learning){learning=data.learning;write('betriz_learning',learning)}
+  // تحقیق
+  var researchBtn = $('researchBtn');
+  if (researchBtn) {
+    researchBtn.addEventListener('click', function() {
+      var topic = $('researchTopic').value.trim();
+      if (!topic) return alert('موضوع را وارد کن');
+      var out = $('researchOutput');
+      out.style.display = 'block';
+      out.textContent = 'در حال تحقیق...\n\n';
+      setTimeout(function() {
+        out.textContent = 'نتیجه تحقیق: «' + topic + '»\n\nخلاصه:\n- مفاهیم کلیدی استخراج شد\n- مراحل عملی پیشنهاد گردید\n- دانش در حافظه ذخیره شد\n\n(شبیه‌سازی‌شده)';
+        knowledge.unshift({ topic: topic, date: new Date().toLocaleString('fa-IR') });
+        write('betriz_knowledge', knowledge);
+        notes.unshift({ text: 'دانش: ' + topic, date: new Date().toLocaleString('fa-IR') });
+        write('betriz_notes', notes);
+      }, 1100);
+    });
+  }
+
+  // کدنویسی
+  var codeBtn = $('codeBtn');
+  if (codeBtn) {
+    codeBtn.addEventListener('click', function() {
+      var req = $('codeRequest').value.trim();
+      if (!req) return alert('توضیح را وارد کن');
+      var out = $('codeOutput');
+      out.style.display = 'block';
+      out.textContent = 'در حال تولید کد...\n\n';
+      setTimeout(function() {
+        out.textContent = 'درخواست: ' + req + '\n\nساختار پیشنهادی:\n1. فایل‌های اصلی\n2. رابط کاربری\n3. منطق برنامه\n\nنمونه کد شروع:\n\n<!DOCTYPE html>\n<html lang="fa" dir="rtl">\n<head>\n<meta charset="UTF-8">\n<title>پروژه</title>\n</head>\n<body>\n  <h1>عنوان پروژه</h1>\n  <p>محتوای اصلی</p>\n</body>\n</html>\n\nجزئیات بیشتر بده تا کد کامل‌تر تولید شود.';
+      }, 900);
+    });
+  }
+
+  // محتوا
+  var contentBtn = $('contentBtn');
+  if (contentBtn) {
+    contentBtn.addEventListener('click', function() {
+      var topic = $('contentTopic').value.trim();
+      var platform = $('contentPlatform').value;
+      var goal = $('contentGoal').value;
+      if (!topic) return alert('موضوع را وارد کن');
+      var out = $('contentOutput');
+      out.style.display = 'block';
+      out.textContent = 'در حال تولید...\n\n';
+      setTimeout(function() {
+        out.textContent = 'محتوا برای ' + platform + '\nموضوع: ' + topic + '\nهدف: ' + goal + '\n\nکپشن اینستاگرام:\n«' + topic + '\nنکات کلیدی را در این پست بخوانید.\nاگر مفید بود ذخیره کنید و نظر بدهید.»\n\nایده ویدیو:\nعنوان جذاب + مقدمه کوتاه + محتوای اصلی + دعوت به اقدام';
+      }, 800);
+    });
+  }
+
+  // مخاطب
+  var audienceBtn = $('audienceBtn');
+  if (audienceBtn) {
+    audienceBtn.addEventListener('click', function() {
+      var info = $('audienceInfo').value.trim();
+      if (!info) return alert('توضیح را وارد کن');
+      var out = $('audienceOutput');
+      out.style.display = 'block';
+      out.textContent = 'در حال تحلیل...\n\n';
+      setTimeout(function() {
+        out.textContent = 'تحلیل بر اساس ورودی شما:\n\n' + info + '\n\nپیشنهادها:\n1. محتوای آموزشی کوتاه روزانه\n2. پشت‌صحنه و داستان شخصی\n3. سؤال و چالش تعاملی\n4. ترکیب پست و ویدیو کوتاه\n5. همکاری با صفحات مرتبط';
+      }, 900);
+    });
+  }
+
+  // هدف یادگیری
+  var saveLearningBtn = $('saveLearningBtn');
+  if (saveLearningBtn) {
+    saveLearningBtn.addEventListener('click', function() {
+      learning = {
+        goal: $('learningGoal').value.trim(),
+        days: parseInt($('learningDays').value) || 0
+      };
+      write('betriz_learning', learning);
+      $('learningStatus').textContent = 'هدف یادگیری ذخیره شد.';
+      setTimeout(function() { $('learningStatus').textContent = ''; }, 2500);
+    });
+  }
+
+  // فرمان
+  var addCommandBtn = $('addCommandBtn');
+  if (addCommandBtn) {
+    addCommandBtn.addEventListener('click', function() {
+      var text = $('commandText').value.trim();
+      if (!text) return alert('شرح فرمان را وارد کن');
+      commands.unshift({
+        id: Date.now(),
+        text: text,
+        status: 'در انتظار بررسی',
+        created: new Date().toLocaleString('fa-IR')
+      });
+      write('betriz_commands', commands);
+      $('commandText').value = '';
+      renderCommands();
       updateStats();
-      $('backupStatus').textContent='بازیابی موفق';
-      alert('داده‌ها بازیابی شدند');
-    }catch{alert('فایل نامعتبر')}
-  };
-  reader.readAsText(file);
-  e.target.value='';
-}
+    });
+  }
 
-updateStats();
-renderChat();
+  function renderCommands() {
+    var list = $('commandList');
+    if (!list) return;
+    list.innerHTML = '';
+    commands.forEach(function(c) {
+      var item = document.createElement('div');
+      item.className = 'item';
+      item.innerHTML = '<p>' + c.text + '</p><small class="muted">' + (c.created || '') + '</small><br><span class="status">' + c.status + '</span>';
+      var row = document.createElement('div');
+      row.className = 'row';
+      var approve = document.createElement('button');
+      approve.textContent = 'تأیید (نمایشی)';
+      approve.onclick = function() {
+        if (!confirm('فقط وضعیت تغییر کند؟')) return;
+        c.status = 'تأییدشده (بدون اجرا)';
+        write('betriz_commands', commands);
+        renderCommands();
+      };
+      var remove = document.createElement('button');
+      remove.textContent = 'حذف';
+      remove.className = 'danger';
+      remove.onclick = function() {
+        commands = commands.filter(function(x) { return x.id !== c.id; });
+        write('betriz_commands', commands);
+        renderCommands();
+        updateStats();
+      };
+      row.appendChild(approve);
+      row.appendChild(remove);
+      item.appendChild(row);
+      list.appendChild(item);
+    });
+  }
+
+  // ارتقا
+  document.querySelectorAll('[data-upgrade]').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      proposeUpgrade(btn.getAttribute('data-upgrade'));
+    });
+  });
+
+  var cloudBtn = $('cloudBtn');
+  if (cloudBtn) {
+    cloudBtn.addEventListener('click', function() {
+      proposeUpgrade('cloud');
+    });
+  }
+
+  function proposeUpgrade(type) {
+    var titles = {
+      'local-llm': 'مدل محلی واقعی',
+      'internet': 'اینترنت زنده',
+      'social': 'اتصال واقعی اینستاگرام/یوتیوب',
+      'video': 'ساخت و انتشار ویدیو',
+      'cloud': 'فضای ابری برای گسترش'
+    };
+    var exists = upgrades.find(function(u) {
+      return u.type === type && u.status.indexOf('در انتظار') !== -1;
+    });
+    if (exists) return alert('قبلاً ثبت شده');
+    upgrades.unshift({
+      id: Date.now(),
+      type: type,
+      title: titles[type] || type,
+      status: 'در انتظار تأیید صاحب',
+      created: new Date().toLocaleString('fa-IR')
+    });
+    write('betriz_upgrades', upgrades);
+    renderUpgrades();
+    alert('پیشنهاد ثبت شد');
+  }
+
+  function renderUpgrades() {
+    var list = $('upgradeList');
+    if (!list) return;
+    list.innerHTML = '';
+    if (upgrades.length === 0) {
+      list.innerHTML = '<p class="muted">هیچ پیشنهادی نیست</p>';
+      return;
+    }
+    upgrades.forEach(function(u) {
+      var item = document.createElement('div');
+      item.className = 'item';
+      item.innerHTML = '<p><strong>' + u.title + '</strong></p><small class="muted">' + u.created + '</small><br><span class="status">' + u.status + '</span>';
+      if (u.status.indexOf('در انتظار') !== -1) {
+        var row = document.createElement('div');
+        row.className = 'row';
+        var yes = document.createElement('button');
+        yes.className = 'primary';
+        yes.textContent = 'تأیید';
+        yes.onclick = function() {
+          if (!confirm('فقط وضعیت تغییر کند؟')) return;
+          u.status = 'تأییدشده توسط صاحب';
+          write('betriz_upgrades', upgrades);
+          renderUpgrades();
+        };
+        var no = document.createElement('button');
+        no.className = 'danger';
+        no.textContent = 'رد';
+        no.onclick = function() {
+          u.status = 'ردشده';
+          write('betriz_upgrades', upgrades);
+          renderUpgrades();
+        };
+        row.appendChild(yes);
+        row.appendChild(no);
+        item.appendChild(row);
+      }
+      list.appendChild(item);
+    });
+  }
+
+  // حافظه
+  function renderNotes() {
+    var list = $('memoryList');
+    if (!list) return;
+    list.innerHTML = '';
+    var all = notes.slice();
+    knowledge.forEach(function(k) {
+      all.push({ text: 'دانش: ' + k.topic, date: k.date });
+    });
+    if (all.length === 0) {
+      list.innerHTML = '<p class="muted">خالی است</p>';
+      return;
+    }
+    all.forEach(function(n) {
+      var div = document.createElement('div');
+      div.className = 'item';
+      div.innerHTML = '<p>' + n.text + '</p><small class="muted">' + (n.date || '') + '</small>';
+      list.appendChild(div);
+    });
+  }
+
+  var clearNotesBtn = $('clearNotesBtn');
+  if (clearNotesBtn) {
+    clearNotesBtn.addEventListener('click', function() {
+      if (!confirm('همه پاک شود؟')) return;
+      notes = [];
+      knowledge = [];
+      write('betriz_notes', notes);
+      write('betriz_knowledge', knowledge);
+      renderNotes();
+    });
+  }
+
+  // پشتیبان
+  var exportBtn = $('exportBtn');
+  if (exportBtn) {
+    exportBtn.addEventListener('click', function() {
+      var data = {
+        version: 7,
+        exportedAt: new Date().toISOString(),
+        identity: identity,
+        commands: commands,
+        notes: notes,
+        chatHistory: chatHistory,
+        upgrades: upgrades,
+        knowledge: knowledge,
+        learning: learning
+      };
+      var blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+      var url = URL.createObjectURL(blob);
+      var a = document.createElement('a');
+      a.href = url;
+      a.download = 'betriz-final-' + Date.now() + '.json';
+      a.click();
+      URL.revokeObjectURL(url);
+      $('backupStatus').textContent = 'پشتیبان آماده شد';
+    });
+  }
+
+  var importBtn = $('importBtn');
+  if (importBtn) {
+    importBtn.addEventListener('click', function() {
+      $('importFile').click();
+    });
+  }
+
+  var importFile = $('importFile');
+  if (importFile) {
+    importFile.addEventListener('change', function(e) {
+      var file = e.target.files[0];
+      if (!file) return;
+      var reader = new FileReader();
+      reader.onload = function(ev) {
+        try {
+          var data = JSON.parse(ev.target.result);
+          if (data.identity) { identity = data.identity; write('betriz_identity', identity); }
+          if (data.commands) { commands = data.commands; write('betriz_commands', commands); }
+          if (data.notes) { notes = data.notes; write('betriz_notes', notes); }
+          if (data.chatHistory) { chatHistory = data.chatHistory; write('betriz_chat', chatHistory); }
+          if (data.upgrades) { upgrades = data.upgrades; write('betriz_upgrades', upgrades); }
+          if (data.knowledge) { knowledge = data.knowledge; write('betriz_knowledge', knowledge); }
+          if (data.learning) { learning = data.learning; write('betriz_learning', learning); }
+          updateStats();
+          $('backupStatus').textContent = 'بازیابی موفق';
+          alert('داده‌ها بازیابی شدند');
+        } catch (err) {
+          alert('فایل نامعتبر');
+        }
+      };
+      reader.readAsText(file);
+      e.target.value = '';
+    });
+  }
+
+  // شروع
+  updateStats();
+  renderChat();
+})();
 </script>
 </body>
-  </html>
+          </html>
