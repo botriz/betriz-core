@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <meta name="theme-color" content="#0b1120">
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="icon" href="./icon.svg" type="image/svg+xml">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <title>بت‌ریز | دستیار مرکزی</title>
@@ -248,7 +250,8 @@ section[hidden] { display: none !important; }
 
 <header>
   <h1>بت‌ریز</h1>
-  <p>دستیار مرکزی · نسخه کامل نهایی · مکالمه واقعی + تنظیمات</p>
+  <p>دستیار محلی · اجرای مستقل روی دستگاه</p>
+  <p id="offlineStatus" role="status" aria-live="polite" style="margin-top:5px;color:#a7b5ca">در حال بررسی وضعیت آفلاین…</p>
 </header>
 
 <nav id="mainNav">
@@ -941,6 +944,21 @@ section[hidden] { display: none !important; }
   updateStats();
   renderChat();
 })();
+
+// Offline-first PWA: the interface and local data remain on this device.
+if ('serviceWorker' in navigator && location.protocol === 'https:') {
+  window.addEventListener('load', function () {
+    navigator.serviceWorker.register('./sw.js').then(function () {
+      var status = document.getElementById('offlineStatus');
+      if (status) status.textContent = navigator.onLine ? 'آماده · امکان استفاده پس از بارگذاری اولیه بدون اینترنت' : 'حالت آفلاین · داده‌ها روی همین دستگاه ذخیره می‌شوند';
+    }).catch(function () {
+      var status = document.getElementById('offlineStatus');
+      if (status) status.textContent = 'اجرای محلی فعال است؛ نصب آفلاین در این مرورگر در دسترس نیست.';
+    });
+  });
+}
+window.addEventListener('online', function () { var e=document.getElementById('offlineStatus'); if(e)e.textContent='اتصال اینترنت برقرار است؛ اطلاعات محلی همچنان روی دستگاه می‌مانند.'; });
+window.addEventListener('offline', function () { var e=document.getElementById('offlineStatus'); if(e)e.textContent='حالت آفلاین · بخش‌های محلی فعال‌اند؛ قابلیت‌های نیازمند اینترنت در دسترس نیستند.'; });
 </script>
 </body>
           </html>
