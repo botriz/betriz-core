@@ -1,10 +1,23 @@
-# Betriz Core — static interface prototype
+# بت‌ریز Core — برنامهٔ مستقل و آفلاین‌محور
 
-This repository contains a single-page Persian RTL interface prototype.
+این مخزن یک برنامهٔ وب فارسی RTL است که بدون backend و بدون سرور اختصاصی اجرا می‌شود.
 
-- Status: `STATIC UI PROTOTYPE`
-- Runtime: static hosting only; no backend or persistent server-side accounts
-- AI connectivity: not provided by this repository
-- Production service backend: [botriz/Suraya-ai](https://github.com/botriz/Suraya-ai)
+## اجرا و انتشار
+- قابل میزبانی روی GitHub Pages یا هر میزبان فایل استاتیک HTTPS
+- پس از بارگذاری نخست و ثبت Service Worker، پوستهٔ برنامه در حالت آفلاین باز می‌شود
+- قابل نصب روی Android و دسکتاپ از مرورگرهای سازگار (افزودن به صفحهٔ اصلی / Install)
+- داده‌های این نسخه در فضای ذخیره‌سازی مرورگر همان دستگاه نگهداری می‌شوند
+- خروجی و بازیابی پشتیبان JSON از داخل برنامه موجود است
 
-It can be previewed as a static page, but it must not be represented as a functioning central AI or control plane until a verified backend and authentication layer are connected.
+## مرزهای واقعی نسخه
+- گفت‌وگو، تحقیق، تولید محتوا و کدنویسی هوشمند در این نمونه هنوز شبیه‌سازی یا قالب محلی هستند؛ این نسخه مدل زبانی واقعی همراه خود ندارد.
+- جست‌وجوی زنده، همگام‌سازی بین دستگاه‌ها، حساب کاربری مرکزی، پرداخت و انتشار شبکه‌های اجتماعی نیازمند اتصال اینترنت و سرویس مجاز مربوطه هستند.
+- Service Worker فقط فایل‌های هم‌مبدأ را cache می‌کند؛ درخواست‌های API و سرویس‌های خارجی را جعل یا ذخیره نمی‌کند.
+- داده‌های مرورگر به دستگاه و پروفایل همان مرورگر وابسته‌اند. پاک‌کردن داده‌های مرورگر ممکن است آن‌ها را حذف کند؛ پشتیبان JSON را در محل امن نگه دارید.
+- این برنامه جایگزین هستهٔ مرکزی یا سامانهٔ تولید هوش مصنوعی ثریا نیست.
+
+## توسعه و کنترل کیفیت
+هیچ بستهٔ runtime یا build server لازم نیست. تست ایستا با Node.js 20 یا جدیدتر:
+```bash
+node --test
+```
